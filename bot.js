@@ -16,7 +16,7 @@ client.on('message', message => {
 
     if (message.content === 'Someone just dropped their wallet in this channel! Hurry and pick it up with `.grab` before someone else gets it!') {
 
-       message.reply('pong');
+       message.reply('.grab');
 
        }
 
