@@ -6,7 +6,7 @@
 
   "version": "1.0.0",
 
-  "main": "bot.js",
+  "main": "bot.io",
 
   "scripts": {
 
@@ -16,7 +16,7 @@
 
   "dependencies": {
 
-    "discord.js": "11.1.0",
+    "discord.io": "2.5.3",
 
     "request": "2.81.0"
 
