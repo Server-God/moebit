@@ -22,6 +22,13 @@ client.on('message', message => {
 
 });
 
+function wait(ms){
+var startTime = getTime();
+var currentTime = getTime();
+while(currentTime - startTime < ms){
+currentTime = getTime();
+}
+}
  
 
 // THIS  MUST  BE  THIS  WAY
