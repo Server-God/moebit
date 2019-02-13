@@ -6,7 +6,7 @@ var Discord = require('discord.io'); // JS library for Discord
 // Initialization, create the bot "object"
 //https://izy521.gitbooks.io/discord-io/content/Client.html
 var bot = new Discord.Client({
-    token: process.env.BOT_TOKEN, // Used for bot login
+    token: "MjU2ODgwNjA0MzU5MDMyODMy.D0U5fA.rHapPSkfZIixe0C2niMyqtUYbXE", // Used for bot login
     autorun: true // Connect immediately
 });
 
