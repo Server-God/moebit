@@ -6,7 +6,7 @@
 
   "version": "1.0.0",
 
-  "main": "bot.io",
+  "main": "bot.js",
 
   "scripts": {
 
