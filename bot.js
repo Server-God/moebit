@@ -27,8 +27,14 @@ client.on('message', message => {
 
 });
 
+client.on('message', message => {
+    if(message.content === 'harvezt'){
 
-
+        var interval = setInterval (function () {
+        message.channel.send('.harvest cannabis')
+      }, 21720000); 
+}
+    });
 
 function wait(ms){
 var startTime = getTime();
