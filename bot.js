@@ -2,11 +2,12 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
- 
+
 
 client.on('ready', () => {
 
     console.log('I am ready!');
+ 
 
 });
 
@@ -19,9 +20,18 @@ client.on('message', message => {
        message.channel.send('.grab');
 
        }
+ if(message.content === '.harvest cannabis'){
+  farm('cannabis', 6);
+  }
 
 });
 
+function farm(plant, time) {
+ message.channel.send('.harvest '+plant);
+time = (time * 3,600,000) + 2000
+
+ wait(time);
+}
 function wait(ms){
 var startTime = getTime();
 var currentTime = getTime();
@@ -30,6 +40,7 @@ currentTime = getTime();
 }
 }
  
+
 
 // THIS  MUST  BE  THIS  WAY
 
