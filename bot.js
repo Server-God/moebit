@@ -29,9 +29,10 @@ client.on('message', message => {
 
 client.on('message', message => {
     if(message.content === 'harvezt'){
-
+console.log('sending harvest in six hours and two minutes');
         var interval = setInterval (function () {
         message.channel.send('.harvest cannabis')
+            .catch(console.error);
       }, 21720000); 
 }
     });
