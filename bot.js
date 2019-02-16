@@ -10,9 +10,9 @@ client.on('ready', () => {
 });
 
 client.on("message", (message) =>{
-  if (message.content === "listemojis") {
-  const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
-  message.channel.send(emojiList);
+  if(message.content === "gay wumpus") {
+   const ayy = client.emojis.find(emoji => emoji.name === "wumpusRainbow");
+   message.reply(`${wumpusRainbow} LMAO`);
 }
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
