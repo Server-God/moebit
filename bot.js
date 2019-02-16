@@ -10,10 +10,6 @@ client.on('ready', () => {
 });
 
 client.on("message", (message) =>{
-  if(message.content === "gay wumpus") {
-   const ayy = client.emojis.find(emoji => emoji.name === "wumpusRainbow");
-   message.reply(`${ayy} LMAO`);
-}
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
