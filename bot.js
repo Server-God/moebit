@@ -22,12 +22,13 @@ client.on("message", (message) =>{
 });
 
 var farm = setInterval(function(){
-var goalTime=timerBoi.data+21600000;
+var goalTime=timerBoi.data;
 var currentTime=new Date().getTime();
 if(currentTime>=goalTime){
-  //client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
+  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
-} 
+  goalTime=timerBoi.data;
+} else {currentTime=new Date().getTime();}
 },6000);
 
 function storeABoi(datA){
@@ -42,6 +43,8 @@ function storeABoi(datA){
 }
 
 function storeTheBoi(){
-var n = new Date().getTime();
+var n = (new Date().getTime())+21720000;
+client.channels.get(process.env.FARM_CHANNELID).send(new Date().getTime());
+client.channels.get(process.env.FARM_CHANNELID).send(n);
 storeABoi(n);
 }
