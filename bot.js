@@ -14,11 +14,10 @@ client.on("message", (message) =>{
   }
   if(message.content.includes('Mrharvezt')){
     let array = message.content.split(" ");
-    let sotre1 = new Date().getTime() + Number(array[1]);
-    let sotre = "{\"data\": "+(sotre1)+"}";
-    process.env.timerBoi = sotre;
-    message.channel.send(process.env.timerBoi);
-    //storeABoi(sotre);
+    let sotre = new Date().getTime() + Number(array[1]);
+    storeABoi(sotre);
+    message.channel.send(timerBoi.data);
+    message.channel.send(sotre);
   }
 });
 
@@ -33,7 +32,7 @@ if(currentTime>=goalTime){
 
 function storeABoi(datA){
   fs.writeFile('./my.json',
-    datA,
+    "{\"data\": "+datA+"}",
     function (err) {
         if (err) {
             console.error('Crap happens');
@@ -44,6 +43,5 @@ function storeABoi(datA){
 
 function storeTheBoi(){
 var n = new Date().getTime();
-n= "{\"data\": "+n+"}";
 storeABoi(n);
 }
