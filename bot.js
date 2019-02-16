@@ -6,6 +6,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
   console.log('I am ready!');
+  console.log(timerBoi.data);
 });
 
 client.on("message", (message) =>{
