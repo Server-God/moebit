@@ -12,9 +12,10 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
-  if(message.channel.includes('Mrharvezt')){
+  if(message.content.includes('Mrharvezt')){
     let array = message.content.split(" ");
     let sotre = "{\"data\": "+(array[1]+timerBoi.data)+"}";
+    message.channel.send(sotre);
     storeABoi(sotre);
   }
 });
