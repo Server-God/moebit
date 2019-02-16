@@ -14,8 +14,10 @@ client.on("message", (message) =>{
   }
   if(message.content.includes('Mrharvezt')){
     let array = message.content.split(" ");
-    let sotre = "{\"data\": "+(timerBoi.data)+"}";
+    //let sotre1 = timerBou.data + array[1];
+    let sotre = "{\"data\": "+(array)+"}";
     message.channel.send(sotre);
+    message.channel.send('.harvest cannabis');
     storeABoi(sotre);
   }
 });
@@ -24,7 +26,7 @@ var farm = setInterval(function(){
 var goalTime=timerBoi.data+21600000;
 var currentTime=new Date().getTime();
 if(currentTime>=goalTime){
-  client.channels.get("402919650985246743").send('.harvest cannabis');
+  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
 } 
 },6000);
