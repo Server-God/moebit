@@ -25,7 +25,7 @@ var farm = setInterval(function(){
 var goalTime=timerBoi.data+21600000;
 var currentTime=new Date().getTime();
 if(currentTime>=goalTime){
-  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
+  //client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
 } 
 },6000);
