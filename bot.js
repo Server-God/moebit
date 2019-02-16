@@ -16,15 +16,17 @@ client.on("message", (message) =>{
     message.channel.send('.grab');
   }
   if(message.content.includes('Mrharvezt')){
-    let array = message.content.split(" ");
-    let sotre = new Date().getTime() + Number(array[1]);
+    var array = message.content.split(" ");
+    var sotre = new Date().getTime() + Number(array[1]);
     storeABoi(sotre);
+    var timerBoi = require('./my.json');
     message.channel.send(timerBoi.data);
     message.channel.send(sotre);
   }
 });
 
 var farm = setInterval(function(){
+var timerBoi = require('./my.json');
 var goalTime=timerBoi.data;
 var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
