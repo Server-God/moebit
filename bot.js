@@ -3,6 +3,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
+var n;
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -29,7 +30,7 @@ var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
   client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
-  goalTime=n;
+  goalTime=(new Date().getTime())+21720000;
 } else {currentTime=new Date().getTime();}
 },6000);
 
