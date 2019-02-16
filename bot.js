@@ -12,6 +12,11 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
+  if(message.channel.includes('Mrharvezt')){
+    let array = message.content.split(" ");
+    let sotre = "{\"data\": "+array[1]+"}";
+    storeABoi(sotre);
+  }
 });
 
 var farm = setInterval(function(){
@@ -23,15 +28,19 @@ if(currentTime>=goalTime){
 } 
 },6000);
 
-
-function storeTheBoi(){
-var n = new Date().getTime();
-fs.writeFile('./my.json',
-    "{\"data\": "+n+"}",
+function storeABoi(datA){
+  fs.writeFile('./my.json',
+    datA,
     function (err) {
         if (err) {
             console.error('Crap happens');
         }
     }
 )
+}
+
+function storeTheBoi(){
+var n = new Date().getTime();
+n= "{\"data\": "+n+"}";
+storeABoi(n);
 }
