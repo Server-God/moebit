@@ -29,7 +29,8 @@ var goalTime = timeLeft;
 var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
   client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
-  goalTime=(new Date().getTime()+21720000);
+  timeLeft=(new Date().getTime()+21720000);
+  goalTime=timeLeft;
   currentTime=new Date().getTime();
 }
 },6000);
