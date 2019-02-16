@@ -30,7 +30,7 @@ var timerBoi = require('./my.json');
 var goalTime=timerBoi.data;
 var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
-  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
+  //client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
   goalTime=(new Date().getTime()+21720000);
   currentTime=new Date().getTime();
