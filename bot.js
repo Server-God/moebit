@@ -19,8 +19,7 @@ client.on("message", (message) =>{
     var hour = Number(array[4]);
     var minutes = Number(array [7]);
     timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000);
-    message.channel.send(timerBoi.data);
-    message.channel.send(sotre);
+    message.channel.send(timeLeft);
   }
 });
 
