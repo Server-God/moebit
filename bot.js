@@ -16,8 +16,8 @@ client.on("message", (message) =>{
   }
   if(message.content.includes('before you can harvest your cannabis crops again')){
     var array = message.content.split(" ");
-    var hour = array[4];
-    var minutes = array [7];
+    var hour = Number(array[4]);
+    var minutes = Number(array [7]);
     timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000);
     message.channel.send(timerBoi.data);
     message.channel.send(sotre);
