@@ -31,7 +31,8 @@ if(currentTime >= goalTime){
   client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
   goalTime=(new Date().getTime()+21720000);
-} else {currentTime=new Date().getTime();}
+  currentTime=new Date().getTime();
+}
 },6000);
 
 function storeABoi(datA){
