@@ -16,8 +16,9 @@ client.on("message", (message) =>{
     let array = message.content.split(" ");
     let sotre1 = new Date().getTime() + Number(array[1]);
     let sotre = "{\"data\": "+(sotre1)+"}";
-    message.channel.send(sotre);
-    storeABoi(sotre);
+    process.env.timerBoi = sotre;
+    message.channel.send(process.env.timerBoi);
+    //storeABoi(sotre);
   }
 });
 
