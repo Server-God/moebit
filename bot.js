@@ -17,7 +17,7 @@ client.on("message", (message) =>{
     //let sotre1 = timerBou.data + array[1];
     let sotre = "{\"data\": "+(array)+"}";
     message.channel.send(sotre);
-    message.channel.send('.harvest cannabis');
+    //message.channel.send('.harvest cannabis');
     storeABoi(sotre);
   }
 });
