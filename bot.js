@@ -14,7 +14,7 @@ client.on("message", (message) =>{
   }
   if(message.content.includes('Mrharvezt')){
     let array = message.content.split(" ");
-    let sotre1 = new Date().getTime() + array[1];
+    let sotre1 = new Date().getTime() + Number(array[1]);
     let sotre = "{\"data\": "+(sotre1)+"}";
     message.channel.send(sotre);
     storeABoi(sotre);
