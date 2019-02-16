@@ -24,10 +24,10 @@ client.on("message", (message) =>{
 var farm = setInterval(function(){
 var goalTime=timerBoi.data;
 var currentTime=new Date().getTime();
-if(currentTime>=goalTime){
+if(currentTime >= goalTime){
   client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
   storeTheBoi();
-  goalTime=timerBoi.data;
+  goalTime=n;
 } else {currentTime=new Date().getTime();}
 },6000);
 
