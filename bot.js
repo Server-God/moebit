@@ -7,14 +7,11 @@ var n = true;
 
 client.on('ready', () => {
   console.log('I am ready!');
-  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
+  client.channels.get(process.env.FARM_CHANNELID).send('.collect');
 });
 
 client.on("message", (message) =>{
-  if(message.content.includes('`.grab`')){
-    message.channel.send('.grab');
-  }
-  if(message.content.includes('before you can harvest your cannabis crops again')){
+  if(message.content.includes('to produce more briefcases!')){
     if (message.channel.id === process.env.FARM_CHANNELID){
     var array = message.content.split(" ");
     var hour = Number(array[4]);
@@ -30,8 +27,8 @@ var farm = setInterval(function(){
 var goalTime = timeLeft;
 var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
-  client.channels.get(process.env.FARM_CHANNELID).send('.harvest cannabis');
-  timeLeft=(new Date().getTime()+21720000);
+  client.channels.get(process.env.FARM_CHANNELID).send('.collect');
+  timeLeft=(new Date().getTime()+43320000);
   goalTime=timeLeft;
   currentTime=new Date().getTime();
 }
