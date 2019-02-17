@@ -18,7 +18,7 @@ client.on("message", (message) =>{
     var array = message.content.split(" ");
     var hour = Number(array[4]);
     var minutes = Number(array [7]);
-    timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000);
+    timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000) + 120000;
     message.channel.send(timeLeft);
     message.channel.send(new Date().getTime());
   } 
