@@ -7,11 +7,11 @@ var n = true;
 
 client.on('ready', () => {
   console.log('I am ready!');
-  client.channels.get(process.env.FARM_CHANNELID).send('.collect');
+  client.channels.get(process.env.FARM_CHANNELID).send('.harvest opium');
 });
 
 client.on("message", (message) =>{
-  if(message.content.includes('to produce more briefcases!')){
+  if(message.content.includes('harvest your opium crops again!')){
     if (message.channel.id === process.env.FARM_CHANNELID){
     var array = message.content.split(" ");
     var hour = Number(array[4]);
@@ -27,8 +27,8 @@ var farm = setInterval(function(){
 var goalTime = timeLeft;
 var currentTime=new Date().getTime();
 if(currentTime >= goalTime){
-  client.channels.get(process.env.FARM_CHANNELID).send('.collect');
-  timeLeft=(new Date().getTime()+43320000);
+  client.channels.get(process.env.FARM_CHANNELID).send('.harvest opium');
+  timeLeft=(new Date().getTime()+72120000);
   goalTime=timeLeft;
   currentTime=new Date().getTime();
 }
