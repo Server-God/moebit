@@ -14,12 +14,14 @@ client.on("message", (message) =>{
     message.channel.send('.grab');
   }
   if(message.content.includes('before you can harvest your cannabis crops again')){
+    if (message.channel === process.env.FARM_CHANNELID){
     var array = message.content.split(" ");
     var hour = Number(array[4]);
     var minutes = Number(array [7]);
     timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000);
     message.channel.send(timeLeft);
     message.channel.send(new Date().getTime());
+  }
   }
 });
 
