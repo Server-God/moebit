@@ -21,7 +21,7 @@ client.on("message", (message) =>{
     timeLeft = new Date().getTime() + (hour * 3600000) + (minutes * 60000);
     message.channel.send(timeLeft);
     message.channel.send(new Date().getTime());
-  } else {message.channel.send("¯\_(ツ)_/¯");}
+  } else {message.channel.send(message.channel + "=/=" + process.env.FARM_CHANNELID);}
   }
 });
 
