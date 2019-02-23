@@ -15,13 +15,8 @@ function Time(){
 function mstohour(ms){
   var text = "";
   var hours = Math.floor(ms / 3600000);
-  var minutes = Math.floor(ms % 3600000);
-  minutes = Math.floor(minutes / 1000);
-  if (hours > 1 ) { 
+  var minutes = Math.floor((ms - (ms % 3600000)) / 1000);
   return text + hours + " hours and " + minutes + " minutes"
-  } else {
-    return text + minutes + " minutes"
-  }
 }
 
 client.on('ready', () => {
