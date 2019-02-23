@@ -33,9 +33,10 @@ client.on("message", (message) =>{
     var array = message.content.split(" ");
     var hour = Number(array[4]);
     var minutes = Number(array [7]);
-    timeLeft = Time() + (hour * 3600000) + (minutes * 60000) + 120000;
-    console.log(mstohour(timeLeft-Time()));
-    message.channel.send(mstohour(timeLeft-Time()));
+    var remainingTime = (hour * 3600000) + (minutes * 60000) + 120000;
+    timeLeft = Time() + remainingTime;
+    console.log(mstohour(remainingTime));
+    message.channel.send(remainingTime);
     message.channel.send(timeLeft);
     message.channel.send(Time());
   } 
