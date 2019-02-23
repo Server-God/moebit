@@ -12,6 +12,13 @@ function Time(){
   return n.getTime();
 }
 
+function mstohour(ms){
+  var text = "";
+  var hours = Math.floor(ms / 360000);
+  var minutes = Math.floor((ms % 360000) / 1000);
+  return text + hours + " hours and " + minutes + " minutes"
+}
+
 client.on('ready', () => {
   console.log('I am ready!');
   client.channels.get(process.env.FARM_CHANNELID).send(cmd);
