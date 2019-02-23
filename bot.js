@@ -19,7 +19,9 @@ function mstohour(ms){
   minutes = Math.floor(minutes / 1000);
   if (hours > 1 ) { 
   return text + hours + " hours and " + minutes + " minutes"
-  } else {return text + minutes + " minutes;}
+  } else {
+    return text + minutes + " minutes"
+  }
 }
 
 client.on('ready', () => {
