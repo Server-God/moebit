@@ -1,2 +1,1 @@
-worker: node can.js
-worker: node opi.js
+worker: node bot.js
