@@ -33,11 +33,16 @@ function mstohour(ms){
   return text + hours + " hours and " + minutes + " minutes"
 }
 
-client.on('ready', () => {
-  console.log('I am ready!');
+function gatherData(){
+  sleep(10000);
   client.channels.get(process.env.FARM_CHANNELID).send(can_cmd);
   sleep(10000);
   client.channels.get(process.env.FARM_CHANNELID).send(opi_cmd);
+}
+
+client.on('ready', () => {
+  console.log('I am ready!');
+  gatherData();
 });
 
 client.on("message", (message) =>{
