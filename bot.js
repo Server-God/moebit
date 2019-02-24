@@ -1,6 +1,6 @@
-const cmd = '.harvest cannabis';
-const botIntervTime = 21720000;
-const triggerMessage = 'before you can harvest your cannabis crops again';
+const cmd = '.harvest opium';
+const botIntervTime = 72120000;
+const triggerMessage = 'before you can harvest your opium crops again';
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
