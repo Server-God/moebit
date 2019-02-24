@@ -1,11 +1,16 @@
-const cmd = '.harvest opium';
-const botIntervTime = 72120000;
-const triggerMessage = 'before you can harvest your opium crops again!';
+const opi_cmd = '.harvest opium';
+const opi_botInterval = 72120000;
+const opi_triggerMessage = 'before you can harvest your opium crops again!';
+
+const can_cmd = '.harvest opium';
+const can_botInterval = 72120000;
+const can_triggerMessage = 'before you can harvest your cannabis crops again!';
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
-var timeLeft = Time() + botIntervTime;
+var can_timeLeft = Time() + can_botInterval;
+var opi_timeLeft = Time() + opi_botInterval;
 
 function Time(){ 
   var n = new Date();
@@ -21,30 +26,52 @@ function mstohour(ms){
 
 client.on('ready', () => {
   console.log('I am ready!');
-  client.channels.get(process.env.FARM_CHANNELID).send(cmd);
+  client.channels.get(process.env.FARM_CHANNELID).send(can_cmd);
+  client.channels.get(process.env.FARM_CHANNELID).send(opi_cmd);
 });
 
 client.on("message", (message) =>{
-  if(message.content.includes(triggerMessage)){
-    if (message.channel.id === process.env.FARM_CHANNELID){
+  if (message.channel.id === process.env.FARM_CHANNELID){
+  if(message.content.includes(can_triggerMessage)){
     var array = message.content.split(" ");
     var hour = Number(array[4]);
     var minutes = Number(array [7]);
     var remainingTime = (hour * 3600000) + (minutes * 60000) + 120000;
-    timeLeft = Time() + remainingTime;
+    can_timeLeft = Time() + remainingTime;
     console.log(mstohour(remainingTime));
     message.channel.send(mstohour(remainingTime));
   } 
+    if(message.content.includes(opi_triggerMessage)){
+    var array = message.content.split(" ");
+    var hour = Number(array[4]);
+    var minutes = Number(array [7]);
+    var remainingTime = (hour * 3600000) + (minutes * 60000) + 120000;
+    opi_timeLeft = Time() + remainingTime;
+    console.log(mstohour(remainingTime));
+    message.channel.send(mstohour(remainingTime));
+  }
   }
 });
 
-var farm = setInterval(function(){
-var goalTime = timeLeft;
+var opi_farm = setInterval(function(){
+var goalTime = opi_timeLeft;
 var currentTime=Time();
 if(currentTime >= goalTime){
-  client.channels.get(process.env.FARM_CHANNELID).send(cmd);
-  timeLeft=(Time()+botIntervTime);
-  goalTime=timeLeft;
+  client.channels.get(process.env.FARM_CHANNELID).send(opi_cmd);
+  opi_timeLeft=(Time()+opi_botInterval);
+  goalTime=opi_timeLeft;
+  currentTime=Time();
+}
+},6000);
+
+
+var can_farm = setInterval(function(){
+var goalTime = can_timeLeft;
+var currentTime=Time();
+if(currentTime >= goalTime){
+  client.channels.get(process.env.FARM_CHANNELID).send(can_cmd);
+  can_timeLeft=(Time()+can_botInterval);
+  goalTime=can_timeLeft;
   currentTime=Time();
 }
 },6000);
