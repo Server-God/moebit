@@ -2,7 +2,7 @@ const opi_cmd = '.harvest opium';
 const opi_botInterval = 72120000;
 const opi_triggerMessage = 'before you can harvest your opium crops again!';
 
-const can_cmd = '.harvest opium';
+const can_cmd = '.harvest cannabis';
 const can_botInterval = 72120000;
 const can_triggerMessage = 'before you can harvest your cannabis crops again!';
 
@@ -27,6 +27,9 @@ function mstohour(ms){
 client.on('ready', () => {
   console.log('I am ready!');
   client.channels.get(process.env.FARM_CHANNELID).send(can_cmd);
+  var testInt = setInterval(function(){
+    clearInterval(testInt)
+  },6000);
   client.channels.get(process.env.FARM_CHANNELID).send(opi_cmd);
 });
 
