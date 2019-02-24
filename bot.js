@@ -15,7 +15,7 @@ function Time(){
 function mstohour(ms){
   var text = "";
   var hours = Math.floor(ms / 3600000);
-  var minutes = Math.floor((ms / 60000) - (hours * 3600));
+  var minutes = Math.floor((ms - (hours * 3600000))/60000);
   return text + hours + " hours and " + minutes + " minutes"
 }
 
