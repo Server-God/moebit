@@ -1,3 +1,4 @@
+//newboi
 const cmd = '.harvest cannabis';
 const botIntervTime = 21720000;
 const triggerMessage = 'before you can harvest your cannabis crops again';
