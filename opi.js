@@ -12,6 +12,15 @@ client.login(process.env.BOT_TOKEN);
 var can_timeLeft = Time() + can_botInterval;
 var opi_timeLeft = Time() + opi_botInterval;
 
+function sleep(milliseconds) {
+  var start = Time();
+  for (var i = 0; i < 1e7; i++) {
+    if ((Time() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
 function Time(){ 
   var n = new Date();
   return n.getTime();
@@ -27,9 +36,7 @@ function mstohour(ms){
 client.on('ready', () => {
   console.log('I am ready!');
   client.channels.get(process.env.FARM_CHANNELID).send(can_cmd);
-  var testInt = setInterval(function(){
-    clearInterval(testInt)
-  },6000);
+  sleep(10000);
   client.channels.get(process.env.FARM_CHANNELID).send(opi_cmd);
 });
 
