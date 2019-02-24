@@ -37,8 +37,6 @@ client.on("message", (message) =>{
     timeLeft = Time() + remainingTime;
     console.log(mstohour(remainingTime));
     message.channel.send(mstohour(remainingTime));
-    message.channel.send(timeLeft);
-    message.channel.send(Time());
   } 
   }
 });
