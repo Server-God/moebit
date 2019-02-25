@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
-var spamShoot = false;
+var spamShoot = 0;
 var spamInterv = 6000;
 var spamMsg = "";
 var spamChannel = 0;
@@ -24,13 +24,12 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	spamMsg = array2[0];
 	spamInterv = Number(array[1]) * 1000;
 	console.log(spamChannel + "\n" + spamMsg + "\n" + spamInterv);
-	message.channel.send(message.member);
 	    }
 
 });
 
 var spam = setInterval(function(){
-	if (spamShoot = true){
+	if (spamShoot = 1){
 		client.channels.get(spamChannel).send(spamMsg);
 	}
 }, spamInterv);
