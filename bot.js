@@ -12,6 +12,6 @@ client.on("message", (message) =>{
   }
   if (message.content.includes('lamo no')){
     message.react('🤔');
-    message.channel.send(message.author.get).catch(console.log(error));
+    message.channel.send(message.author.get);
   }
 });
