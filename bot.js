@@ -19,17 +19,17 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	if (message.content.includes("~~activate")){
 	    //trigger | interval in seconds | command
 	let array = message.content.split(" ");
-	let array2 = message.content.split(" ").slice(2).join(" ");
 	spamChannel = message.channel.id;
-	spamMsg = array2[0];
+	spamMsg = message.content.split(" ").slice(2).join(" ");
 	spamInterv = Number(array[1]) * 1000;
 	console.log(spamChannel + "\n" + spamMsg + "\n" + spamInterv);
+		spamShoot = 1;
 	    }
 
 });
 
 var spam = setInterval(function(){
 	if (spamShoot = 1){
-		client.channels.get(spamChannel).send(spamMsg);
+		client.channels.get(spamChannel).send(cmd);
 	}
 }, spamInterv);
