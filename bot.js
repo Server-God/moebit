@@ -16,11 +16,12 @@ client.on("message", (message) =>{
 if(message.member.roles.has(process.env.SUS_ROLE)){ 
 	message.react(process.env.SUS_EMOJI);
 }
-	if (message.content.includes("`activate"){
+	if (message.content.includes("~~activate"){
 	    //trigger | interval in seconds | command
-	let array = message.content.split(" | ");
+	let array = message.content.split(" ");
+	let array2 = message.content.split(" ").slice(2).join(" ");
 	spamChannel = message.channel.id;
-	spamMsg = array[2];
+	spamMsg = array2[0];
 	spamInter = Number(array[1]) * 1000;
 	message.channel.send(message.member);
 	    }
