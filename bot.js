@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
 var spamShoot = false;
-var spamInter = 6000;
+var spamInterv = 6000;
 var spamMsg = "";
 var spamChannel = 0;
 client.on('ready', () => {
