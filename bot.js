@@ -26,9 +26,6 @@ client.on('ready', () => {
 });
 
 client.on("message", (message) =>{
-  if(message.content.includes('`.grab`')){
-    message.channel.send('.grab');
-  }
   if(message.content.includes(triggerMessage)){
     if (message.channel.id === process.env.FARM_CHANNELID){
     var array = message.content.split(" ");
