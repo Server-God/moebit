@@ -4,7 +4,7 @@ client.login(process.env.BOT_TOKEN);
 var spamShoot = 0;
 var spamInterv = 6000;
 var spamMsg = "";
-var spamChannel = 0;
+var spamChannel = 402919650985246743;
 client.on('ready', () => {
   console.log('I am ready!');
 });
