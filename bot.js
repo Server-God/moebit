@@ -22,7 +22,8 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	let array2 = message.content.split(" ").slice(2).join(" ");
 	spamChannel = message.channel.id;
 	spamMsg = array2[0];
-	spamInter = Number(array[1]) * 1000;
+	spamInterv = Number(array[1]) * 1000;
+	console.log(spamChannel + "\n" + spamMsg + "\n" + spamInterv);
 	message.channel.send(message.member);
 	    }
 
