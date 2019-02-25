@@ -10,9 +10,7 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
-  if (process.env.SUS_STATUS == true) {
 if(message.member.roles.has(process.env.SUS_ROLE)){ 
 	message.react(process.env.SUS_EMOJI);
 }
-  }
 });
