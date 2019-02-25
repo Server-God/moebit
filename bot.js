@@ -11,6 +11,7 @@ client.on("message", (message) =>{
     message.channel.send('.grab');
   }
   if (message.content.includes('lamo no')){
-    message.react('515086766353678348');
+    message.react('🤔');
+    message.channel.send(message.author);
   }
 });
