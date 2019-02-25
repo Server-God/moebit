@@ -28,8 +28,8 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 
 });
 
-var spam = setInterval(function(){
-	if (spamShoot = 1){
-		client.channels.get(spamChannel).send(cmd);
-	}
-}, spamInterv);
+var farm = setInterval(function(){
+if(spamShoot = 1{
+  client.channels.get(spamChannel).send(cmd);
+}
+},spamInterv);
