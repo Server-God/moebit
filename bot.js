@@ -42,7 +42,7 @@ client.on("message", (message) =>{
 		message.delete();
 	    //trigger | interval in seconds | command
 		let array = message.content.split(" ");
-		var spamInterv = Number(array[1]) * 1000;
+		var spamInterv = (Number(array[1]) * 1000) + 100;
 		var spamMsg = message.content.split(" ").slice(2).join(" ");
 		console.log(spamMsg + "\n" + spamInterv);
 		
