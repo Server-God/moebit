@@ -18,6 +18,16 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	if (message.content == prefix+"stop"){
 	clearInterval(spam);	
 	}
+	if (message.content == prefix+"testcmd"){
+	var nTest = 0;
+	nTest = 1;
+	if(nTest=1){
+		//message.channel.send();
+		let memberTag = member.user.tag;
+		console.log(memberTag);
+	 }
+	
+	}
 
 });
 
