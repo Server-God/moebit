@@ -19,7 +19,9 @@ if(message.author.id == process.env.SUS_ROLE){
 	//all these depend on me sending
 if (message.author.id = myID){
 	if (message.content == prefix+"stop"){
+	message.delete;
 	clearInterval(spam);	
+	message.channel.send("I\'ll stop lmao");
 	}
 	
 	if (message.content == prefix+"testcmd"){
@@ -37,6 +39,7 @@ if (message.author.id = myID){
 client.on("message", (message) =>{
 	if (message.author.id = myID){
 	if (message.content.includes(prefix+"start")){
+		message.delete;
 	    //trigger | interval in seconds | command
 		let array = message.content.split(" ");
 		var spamInterv = Number(array[1]) * 1000;
