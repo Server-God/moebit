@@ -14,7 +14,9 @@ client.on("message", (message) =>{
 if(message.member.roles.has(process.env.SUS_ROLE)){ 
 	message.react(process.env.SUS_EMOJI);
 }
-	
+	if (message.content == prefix+"stop"){
+	clearInterval(spam);	
+	}
 
 });
 
