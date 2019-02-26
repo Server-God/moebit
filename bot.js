@@ -3,7 +3,7 @@ const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
 var myID = 256880604359032832;
 var spam;
-var prefix = "~~";
+var prefix = process.env.prefix;
 var text = "";
 client.on('ready', () => {
   console.log('I am ready!');
