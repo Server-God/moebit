@@ -19,7 +19,7 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	if (message.content.includes("~~activate")){
 	    //trigger | interval in seconds | command
 	let array = message.content.split(" ");
-	spamChannel = message.channel.id;
+	spamChannel = "" + message.channel.id;
 	spamMsg = message.content.split(" ").slice(2).join(" ");
 	spamInterv = Number(array[1]) * 1000;
 	console.log(spamChannel + "\n" + spamMsg + "\n" + spamInterv);
