@@ -5,6 +5,7 @@ var myID = 256880604359032832;
 var spam;
 var prefix = process.env.prefix;
 var text = "";
+var cancelCode = "981204712959127501725105719501750";
 client.on('ready', () => {
   console.log('I am ready!');
 });
@@ -23,7 +24,9 @@ if (message.author.id = myID){
 	clearInterval(spam);	
 	message.channel.send("I\'ll stop lmao");
 	}
-	
+	if (message.content.includes(cancelCode)){
+	clearInterval(spam);	
+	}
 	if (message.content == prefix+"testcmd"){
 	var nTest = 1;
 	//nTest = 0;
@@ -32,6 +35,9 @@ if (message.author.id = myID){
 		let memberTag = message.author;
 		console.log(memberTag);
 	 }
+	if (message.content.includes(prefix+"cancelCode")){
+	    cancelCode = message.content.split(" ").slice(1).join(" ");
+	    }
 	}
    }
 });
@@ -40,7 +46,7 @@ client.on("message", (message) =>{
 	if (message.author.id = myID){
 	if (message.content.includes(prefix+"start")){
 		message.delete();
-	    //trigger | interval in seconds | command
+	    //trigger interval in seconds command
 		let array = message.content.split(" ");
 		var spamInterv = (Number(array[1]) * 1000) + 100;
 		var spamMsg = message.content.split(" ").slice(2).join(" ");
