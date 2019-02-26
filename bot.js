@@ -17,10 +17,11 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	message.react(process.env.SUS_EMOJI);
 }
 	//all these depend on me sending
-	if (message.author.id = myID){
+if (message.author.id = myID){
 	if (message.content == prefix+"stop"){
 	clearInterval(spam);	
 	}
+	
 	if (message.content == prefix+"testcmd"){
 	var nTest = 1;
 	//nTest = 0;
@@ -30,12 +31,12 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 		console.log(memberTag);
 	 }
 	}
-	}
+   }
 });
 
 client.on("message", (message) =>{
 	if (message.author.id = myID){
-	if (message.content.includes(prefix+"activate")){
+	if (message.content.includes(prefix+"start")){
 	    //trigger | interval in seconds | command
 		let array = message.content.split(" ");
 		var spamInterv = Number(array[1]) * 1000;
