@@ -30,6 +30,6 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 
 var farm = setInterval(function(){
 if(spamShoot = 1){
-  client.channels.get(spamChannel).send(cmd);
+client.channels.get("402919650985246743").send("Hi!");
 }
 },spamInterv);
