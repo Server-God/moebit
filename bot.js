@@ -28,5 +28,5 @@ client.on("message", (message) =>{
 		var spam = setInterval(function(){
 	message.channel.send(spamMsg);
 	    }, spamInterv);
-	});
+	};
 });
