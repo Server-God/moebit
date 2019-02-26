@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
+var myID = 256880604359032832;
 var spam;
 var prefix = "~~";
 var text = "";
@@ -15,6 +16,8 @@ client.on("message", (message) =>{
 if(message.member.roles.has(process.env.SUS_ROLE)){ 
 	message.react(process.env.SUS_EMOJI);
 }
+	//all these depend on me sending
+	if (message.author.id = myID){
 	if (message.content == prefix+"stop"){
 	clearInterval(spam);	
 	}
@@ -27,10 +30,11 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 		console.log(memberTag);
 	 }
 	}
-
+	}
 });
 
 client.on("message", (message) =>{
+	if (message.author.id = myID){
 	if (message.content.includes(prefix+"activate")){
 	    //trigger | interval in seconds | command
 		let array = message.content.split(" ");
@@ -42,4 +46,5 @@ client.on("message", (message) =>{
 	message.channel.send(spamMsg);
 	    }, spamInterv);
 	};
+	}
 });
