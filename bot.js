@@ -13,7 +13,7 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
-if(message.member.roles.has(process.env.SUS_ROLE)){ 
+if(message.author.id == process.env.SUS_ROLE){ 
 	message.react(process.env.SUS_EMOJI);
 }
 	//all these depend on me sending
