@@ -24,8 +24,9 @@ client.on("message", (message) =>{
 		var spamInterv = Number(array[1]) * 1000;
 		var spamMsg = message.content.split(" ").slice(2).join(" ");
 		console.log(spamChannel + "\n" + spamMsg + "\n" + spamInterv);
+		
 		var spam = setInterval(function(){
 	message.channel.send(spamMsg);
-	    }
-	}, spamInterv);
+	    }, spamInterv);
+	});
 });
