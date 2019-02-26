@@ -19,14 +19,13 @@ if(message.member.roles.has(process.env.SUS_ROLE)){
 	clearInterval(spam);	
 	}
 	if (message.content == prefix+"testcmd"){
-	var nTest = 0;
-	nTest = 1;
+	var nTest = 1;
+	//nTest = 0;
 	if(nTest=1){
 		//message.channel.send();
-		let memberTag = member.user.tag;
+		let memberTag = message.author;
 		console.log(memberTag);
 	 }
-	
 	}
 
 });
