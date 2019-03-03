@@ -31,7 +31,7 @@ if (message.author.id = myID){
 		let memberTag = message.author;
 		console.log(memberTag);
 	 }
-   }
+   }}
 });
 
 client.on("message", (message) =>{
