@@ -73,9 +73,12 @@
         $('#Submit').click(function(e) {
 	if ($("#url").val() == "Lexi" || "meme"){
 		var url = "https://discordapp.com/api/webhooks/551873479608107020/eRFecOkw3xMQabB5xywqb9geQnuWZayotfMtiBaqpZjJWpJW1qhp527-v7lov_6YkZMg";
-	}else if ($("#url").val() = "Gay" || "Elliot"){
+	}else if ($("#url").val() == "Gay" || "Elliot"){
 			var url = "https://discordapp.com/api/webhooks/551874016453853259/knEbGHhV0-3APudynIv32rSfVwqtlIxtr_sxxH-1zqkngVMgJNna_ckDfKQsknla8gzM";
-		} else {var url = $("#url").val();}
+		} else if ($("#url").val() == "dev"){
+		var url = "https://discordapp.com/api/webhooks/404497009970774017/U7LyZz8Ji47PfLOUMkjhnbKNmpXOPdqqsdwOIuUBw3a6y103nO82iTVp_GdYDoswCuW0";
+			   }
+		else {var url = $("#url").val();}
         var content = $("#content").val();
         var username = "MoeBot";
         var avatar_url = "https://cdn.discordapp.com/emojis/543261302991224861.png?v=1";
