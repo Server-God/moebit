@@ -38,6 +38,7 @@ client.on("message", (message) =>{
 	if (message.author.id = myID){
 	if (message.content.includes(prefix+"start")){
 		message.delete();
+		message.channel.send(spamMsg);
 	    //trigger interval in seconds command
 		let array = message.content.split(" ");
 		var spamInterv = (Number(array[1]) * 1000) + 100;
