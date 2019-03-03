@@ -22,10 +22,6 @@ if (message.author.id = myID){
 	if (message.content == prefix+"stop"){
 	message.delete();
 	clearInterval(spam);	
-	message.channel.send("I\'ll stop lmao");
-	}
-	if (message.content.includes(cancelCode)){
-	clearInterval(spam);	
 	}
 	if (message.content == prefix+"testcmd"){
 	var nTest = 1;
@@ -35,10 +31,6 @@ if (message.author.id = myID){
 		let memberTag = message.author;
 		console.log(memberTag);
 	 }
-	if (message.content.includes(prefix+"cancelCode")){
-	    cancelCode = message.content.split(" ").slice(1).join(" ");
-	    }
-	}
    }
 });
 
