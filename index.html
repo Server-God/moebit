@@ -34,14 +34,6 @@
             <div class="input-field">
                 <textarea id="content" style="height: 150px" placeholder="Message"></textarea> 
             </div>
-            <div class="row">
-                <div class="input-field s6 col">
-                    <input id="username" type="text"> <label for="username" class="">Username</label>
-                </div>
-                <div class="input-field s6 col">
-                    <input id="avatar_url" type="text"> <label for="avatar_url" class="">Avatar Url</label>
-                </div>
-            </div>
 
         </div><div style="text-align: center;" class="crt"><button type="button" name="Submit" id="Submit" value="Submit" class="crt css3button" style="font-family: Arial, Helvetica, sans-serif;
 	font-size: 20px;
@@ -79,10 +71,14 @@
     <script>
     $(function() {
         $('#Submit').click(function(e) {
-        var url = $("#url").val();
+	if ($("#url").val() == "Lexi"){
+		var url = "https://discordapp.com/api/webhooks/551873479608107020/eRFecOkw3xMQabB5xywqb9geQnuWZayotfMtiBaqpZjJWpJW1qhp527-v7lov_6YkZMg";
+	}else {
+			var url = "https://discordapp.com/api/webhooks/551874016453853259/knEbGHhV0-3APudynIv32rSfVwqtlIxtr_sxxH-1zqkngVMgJNna_ckDfKQsknla8gzM";
+		}
         var content = $("#content").val();
-        var username = $("#username").val();
-        var avatar_url = $("#avatar_url").val();
+        var username = "MoeBot";
+        var avatar_url = "https://cdn.discordapp.com/emojis/543261302991224861.png?v=1";
         $.post(url,
     {"content": content, "username": username, "avatar_url": avatar_url},
         function(){
