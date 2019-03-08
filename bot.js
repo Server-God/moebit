@@ -14,9 +14,9 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
-if(message.author.id == process.env.SUS_ROLE){ 
+/*if(message.author.id == process.env.SUS_ROLE){ 
 	message.react(process.env.SUS_EMOJI);
-}
+}*/
 	//all these depend on me sending
 if (message.author.id = myID){
 	if (message.content == prefix+"stop"){
