@@ -1,13 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-//j
 const config = require('./config.json');
 function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
 }
 function gameBoi(){
   var n = random(0,config.games.length);
-  client.user.setActivity(config.games[n]);
+  client.user.setActivity("Your mom");
 }
 client.login(process.env.BOT_TOKEN);
 var myID = 256880604359032832;
