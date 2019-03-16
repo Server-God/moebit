@@ -6,7 +6,7 @@ function random(low, high){
 }
 function gameBoi(){
   var n = random(0,config.games.length-1);
-  client.user.setActivity(config.games[n], { type: 'WATCHING' });
+  client.user.setActivity(config.games[n]);
 }
 var spam;
 client.on('ready', () => {
