@@ -5,7 +5,6 @@ var myID = 256880604359032832;
 var spam;
 var prefix = process.env.prefix;
 var text = "";
-var cancelCode = "981204712959127501725105719501750";
 client.on('ready', () => {
   console.log('I am ready!');
 });
