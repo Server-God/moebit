@@ -4,11 +4,6 @@ const config = require('./config.json');
 function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
 }
-function gameBoi(){
-  var n = random(0,config.games.length);
-  client.user.setActivity("Your mom");
-}
-client.login(process.env.BOT_TOKEN);
 var myID = 256880604359032832;
 var spam;
 var prefix = process.env.prefix;
@@ -17,14 +12,17 @@ client.on('ready', () => {
   gameBoi()
   console.log('I am ready!');
 });
-
+function gameBoi(){
+  var n = random(0,config.games.length);
+  client.user.setActivity("Your mom");
+}
+var games = setInterval(function(){
+  gameBoi();
+},600000)
 client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
-var games = setInterval(function(){
-  gameBoi();
-},600000)
 /*if(message.author.id == process.env.SUS_ROLE){ 
 	message.react(process.env.SUS_EMOJI);
 }*/
@@ -62,3 +60,4 @@ client.on("message", (message) =>{
 	};
 	}
 });
+client.login(process.env.BOT_TOKEN);
