@@ -1,12 +1,28 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+function random(low, high){
+  return Math.floor(Math.random() * (high - low) + low)
+}
+function gameBoi(){
+  var n = random(0,config.games.length);
+  client.user.setActivity(config.games[n]);
+}
 client.login(process.env.BOT_TOKEN);
 var myID = 256880604359032832;
 var spam;
+var games = [
+    "with the fabric of time",
+    "with myself",
+    "with the concept of fear",
+    "yo mama/'s tiddies",
+    "Minecraft 2.0",
+    "kill me now lmao",
+    "plotting your death"
+  ]
 var prefix = process.env.prefix;
 var text = "";
 client.on('ready', () => {
-  //console.log(client);
+  gameBoi()
   console.log('I am ready!');
 });
 
@@ -14,6 +30,9 @@ client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
+var games = setInterval(function(){
+  gameBoi();
+},600000)
 /*if(message.author.id == process.env.SUS_ROLE){ 
 	message.react(process.env.SUS_EMOJI);
 }*/
