@@ -4,60 +4,50 @@ const config = require('./config.json');
 function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
 }
-var myID = 256880604359032832;
-var spam;
-var prefix = process.env.prefix;
-var text = "";
-client.on('ready', () => {
-  gameBoi()
-  console.log('I am ready!');
-});
 function gameBoi(){
   var n = random(0,config.games.length);
   client.user.setActivity("Your mom");
 }
+var spam;
+client.on('ready', () => {
+  gameBoi()
+  console.log('I am ready!');
+});
 var games = setInterval(function(){
   gameBoi();
 },600000)
+
 client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
     message.channel.send('.grab');
   }
+  if(message.content.indexOf(process.env.prefix) !== 0) return;
+  const args = message.content.slice(process.env.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 /*if(message.author.id == process.env.SUS_ROLE){ 
 	message.react(process.env.SUS_EMOJI);
 }*/
 	//all these depend on me sending
-if (message.author.id = myID){
-	if (message.content == prefix+"stop"){
+if (message.author.id !== process.env.myID) return;
+	if (command == "stop"){
 	message.delete();
 	clearInterval(spam);	
 	}
-	if (message.content == prefix+"testcmd"){
-	var nTest = 1;
-	//nTest = 0;
-	if(nTest=1){
-		//message.channel.send();
-		let memberTag = message.author;
-		console.log(memberTag);
-	 }
-   }}
 });
 
 client.on("message", (message) =>{
-	if (message.author.id = myID){
-	if (message.content.includes(prefix+"start")){
+	if(message.content.indexOf(process.env.prefix) !== 0) return;
+  const args = message.content.slice(process.env.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	if (command == "start"){
 		message.delete();
 		message.channel.send(spamMsg);
 	    //trigger interval in seconds command
-		let array = message.content.split(" ");
-		var spamInterv = (Number(array[1]) * 1000) + 100;
-		var spamMsg = message.content.split(" ").slice(2).join(" ");
-		console.log(spamMsg + "\n" + spamInterv);
-		
+		var spamInter = args.shift();
+    spamInterv = (Number(spamInterv) * 1000) + 100;
 		spam = setInterval(function(){
-	message.channel.send(spamMsg);
+	message.channel.send(args);
 	    }, spamInterv);
 	};
-	}
 });
 client.login(process.env.BOT_TOKEN);
