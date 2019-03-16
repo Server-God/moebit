@@ -6,7 +6,7 @@ function random(low, high){
 }
 function gameBoi(){
   var n = random(0,config.games.length);
-  client.user.setActivity("Your mom");
+  client.user.setPresence({ status: 'online', game: { name: 'GAME HERE' } });
 }
 var spam;
 client.on('ready', () => {
