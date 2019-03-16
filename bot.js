@@ -6,7 +6,7 @@ var spam;
 var prefix = process.env.prefix;
 var text = "";
 client.on('ready', () => {
-  console.log(client);
+  //console.log(client);
   console.log('I am ready!');
 });
 
