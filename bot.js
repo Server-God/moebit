@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+//j
 const config = require('./config.json');
 function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
