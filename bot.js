@@ -5,7 +5,7 @@ function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
 }
 function gameBoi(){
-  var n = random(0,config.games.length);
+  var n = random(0,config.games.length-1);
   client.user.setActivity(config.games[n]);
 }
 var spam;
