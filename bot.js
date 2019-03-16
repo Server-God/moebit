@@ -33,6 +33,9 @@ if (message.author.id !== process.env.myID) return;
 	message.delete();
 	clearInterval(spam);	
 	}
+	if (command == "whoosh"){
+	gameBoi();
+	}
 });
 
 client.on("message", (message) =>{
