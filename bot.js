@@ -34,7 +34,9 @@ if (message.author.id !== process.env.myID) return;
 	clearInterval(spam);	
 	}
 	if (command == "whoosh"){
-	gameBoi();
+	const newGame = args.join(" ");
+	clearInterval(games);
+	client.user.setActivity(newGame);
 	}
 });
 
