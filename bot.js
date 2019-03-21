@@ -13,9 +13,7 @@ client.on('ready', () => {
   gameBoi()
   console.log('I am ready!');
 });
-var games = setInterval(function(){
-  gameBoi();
-},600000)
+var games = setInterval(gameBoi,600000);
 
 client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
@@ -39,6 +37,7 @@ if (message.author.id !== process.env.myID) return;
     	message.delete().catch(O_o=>{}); 
 	clearInterval(games);
 	client.user.setActivity(newGame);
+	games = setInterval(gameBoi,600000);
 	}
 });
 
