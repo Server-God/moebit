@@ -1,6 +1,7 @@
 <html><head>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>General Use Sender</title>
     <style>
@@ -17,6 +18,7 @@
      border-bottom: 1px solid #2196f3 !important;
      box-shadow: 0 1px 0 0 #2196f3 !important;
     }
+    .mySlides {display:none;}
     </style>
 </head>
 <body>
@@ -27,9 +29,19 @@
             <h1>Discord Webhook Sender</h1>
 
         </div>
+	    <div class="w3-content w3-display-container">
+  <img onclick="javascript:theFace("fingerguns.png")" class="mySlides" src="images/fingerguns.png" style="width:100%">
+  <img onclick="javascript:theFace("fire.jpg")" class="mySlides" src="images/fire.jpg" style="width:100%">
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
         <div class="card card-panel">
             <div class="input-field">
                 <input id="url" type="text"> <label for="url" class="">Webhook URL</label>
+            </div>
+		<div class="input-field">
+                <input id="name" type="text"> <label for="name" class="">Name</label>
             </div>
             <div class="input-field">
                 <textarea id="content" style="height: 150px" placeholder="Message"></textarea> 
@@ -69,19 +81,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js">
     </script> 
     <script>
+	    var bigFace;
+	//<img onclick="javascript:exportToForm('1.6','55','10','50','1')" src="China-Flag-256.png" />
+	function theFace(face){
+	bigFace = "images/"+face
+	}
     $(function() {
         $('#Submit').click(function(e) {
-	if ($("#url").val() == "Lexi" || "meme"){
-		var url = "https://discordapp.com/api/webhooks/551873479608107020/eRFecOkw3xMQabB5xywqb9geQnuWZayotfMtiBaqpZjJWpJW1qhp527-v7lov_6YkZMg";
-	}else if ($("#url").val() == "Gay" || "Elliot"){
-			var url = "https://discordapp.com/api/webhooks/551874016453853259/knEbGHhV0-3APudynIv32rSfVwqtlIxtr_sxxH-1zqkngVMgJNna_ckDfKQsknla8gzM";
-		} else if ($("#url").val() == "dev"){
-		var url = "https://discordapp.com/api/webhooks/404497009970774017/U7LyZz8Ji47PfLOUMkjhnbKNmpXOPdqqsdwOIuUBw3a6y103nO82iTVp_GdYDoswCuW0";
-			   }
-		else {var url = $("#url").val();}
+	var url = $("#url").val();
+	if (url == "Lexi" || "meme"){
+		url = "https://discordapp.com/api/webhooks/558113380821499907/q63XJGhrTnJWaAlMPN1Wf9XJE9HWT4NlBuH4WyyKldbum1TNJvvqY2jArzrkT5A6xxQG";
+	}else if (url == "Gay" || "Elliot"){
+		url = "https://discordapp.com/api/webhooks/551874016453853259/knEbGHhV0-3APudynIv32rSfVwqtlIxtr_sxxH-1zqkngVMgJNna_ckDfKQsknla8gzM";
+	} else if (url == "dev"){
+		 url = "https://discordapp.com/api/webhooks/404497009970774017/U7LyZz8Ji47PfLOUMkjhnbKNmpXOPdqqsdwOIuUBw3a6y103nO82iTVp_GdYDoswCuW0";
+			}
         var content = $("#content").val();
-        var username = "MoeBot";
-        var avatar_url = "https://cdn.discordapp.com/emojis/543261302991224861.png?v=1";
+        var username = $("#name").val();
+        var avatar_url = bigFace;
         $.post(url,
     {"content": content, "username": username, "avatar_url": avatar_url},
         function(){
