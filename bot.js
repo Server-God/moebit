@@ -11,6 +11,7 @@ var loop = setTimeout(() => {
 //if (Math.random() == 0) return;
 if (queue.length !== 0 && queue !== undefined){
 var itemf = queue[0];
+console.log(itemf.order);
 client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
 }
 },5000);
