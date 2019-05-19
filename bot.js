@@ -9,7 +9,7 @@ var menu = menuFun();
 
 var loop = setTimeout(() => {
 //if (Math.random() == 0) return;
-if (queue == {}) return;
+if (queue.length < 1 || queue == undefined) return;
 var itemf = queue[0];
 client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
 },5000);
