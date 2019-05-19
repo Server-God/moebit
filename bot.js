@@ -46,8 +46,8 @@ console.log('I am ready!');
 
 client.on('message', (message) => {
  if(message.author.bot) return;
-  if(message.content.indexOf(prefix) !== 0) return;
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  if(message.content.indexOf(prefix) !== 0) return;
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
 if (command == "help"){
@@ -59,9 +59,11 @@ message.channel.send(menu);
 if (command == "order"){
 var drinkOrdered = args.join(' ');
 if (!(drinks.some((x) => {x ==drinkOrdered}))){
-message.channel.send("My Apologies. We don't serve that here");
+message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
 return;}
 message.channel.send("you ordered "+drinkOrdered);
 }
 });
-client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
+
+//Test
+client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");7
