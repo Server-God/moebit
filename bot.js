@@ -45,7 +45,11 @@ var output = "Drink Menu```"
 for (var I = 0; I<drinks.length;I++){
 output = output + drinks[I]+"\n";
 }
-output = output + "```" 
+output = output + "```Snacks```";
+for (var h = 0; h<snacks.length;h++){
+output = output + snacks[h]+"\n";
+}
+output = output + "```";
 return output
 }
 
