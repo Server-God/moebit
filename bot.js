@@ -1,4 +1,3 @@
-//hey what does this do
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "b ";
@@ -59,11 +58,11 @@ message.channel.send(menu);
 }
 if (command == "order"){
 var drinkOrdered = args.join(' ');
-if (drinks.some((x) => {return x == drinkOrdered})){
+if (!drinks.some((x) => {return x == drinkOrdered})){
+message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
+return;
+}
 message.channel.send("you ordered "+drinkOrdered);
 }
-message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
-}
 });
-//Editing still !
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
