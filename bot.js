@@ -14,7 +14,7 @@ if (queue.length > 0){
 var itemf = queue[0];
 client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
 }
-},5000);
+},10000);
 /*
 var mysql = require('mysql');
 
