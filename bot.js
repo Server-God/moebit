@@ -4,7 +4,7 @@ const botIntervTime = 21720000;
 const triggerMessage = 'before you can harvest your cannabis crops again';
 
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = ew Discord.Client();
 client.login(process.env.BOT_TOKEN);
 var timeLeft = Time() + botIntervTime;
 
@@ -16,7 +16,7 @@ function Time(){
 function mstohour(ms){
   var text = "";
   var hours = Math.floor(ms / 3600000);
-  var minutes = Math.floor((ms - (hours * 3600000))/60000);
+  var minut((ms - (hours * 3600000))/60000);
   return text + hours + " hours and " + minutes + " minutes"
 }
 
