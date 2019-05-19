@@ -1,9 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "b ";
+var prefix = ",,";
 var drinks = ["coffee","beer","whiskey","Manhattan","martini","mojito","bloody mary","mai tai","tequila","vodka","old fashioned","rum"]
+var snacks = ["chips","bread sticks","crackers","peanuts","popcorn"]
+var queue = {};
 var help = helpFun();
 var menu = menuFun();
+
+var loop = setTimeout(() => {
+//if (Math.random() == 0) return;
+if (queue == {}) return;
+var itemf = queue[0];
+client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
+},5000);
 /*
 var mysql = require('mysql');
 
@@ -57,12 +66,18 @@ if (command == "menu"){
 message.channel.send(menu);
 }
 if (command == "order"){
-var drinkOrdered = args.join(' ');
-if (!drinks.some((x) => {return x == drinkOrdered})){
-message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
+var vorder = args.join(' ');
+if (!drinks.some((x) => {return x == vorder})){
+if (!snacks.some((x) => {return x == vorder})){
+message.channel.send("My apologies. We don't serve **"+vorder+"** here.");
 return;
-}
-message.channel.send("you ordered "+drinkOrdered);
+}}
+message.channel.send("you ordered "+vorder);
+queue.push({
+'id': message.author.id,
+'channel': message.channel.id,
+'order': vorder
+});
 }
 });
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
