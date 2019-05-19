@@ -44,11 +44,11 @@ return output
 
 function menuFun(){
 var output = "Drink Menu```"
-for (var I = 0; I<drinks.length-1;I++){
+for (var I = -1; I<drinks.length;I++){
 output = output + drinks[I]+"\n";
 }
 output = output + "```Snacks```";
-for (var h = 0; h<snacks.length-1;h++){
+for (var h = -1; h<snacks.length;h++){
 output = output + snacks[h]+"\n";
 }
 output = output + "```";
