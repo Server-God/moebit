@@ -56,7 +56,7 @@ message.channel.send(help);
 if (command == "menu"){
 message.channel.send(menu);
 }
-if (command == "order")){
+if (command == "order"){
 var drinkOrdered = args.join(' ');
 if (!drinks.some((x) => {x ==drinkOrdered})) return;
 message.channel.send("you ordered "+drinkOrdered);
