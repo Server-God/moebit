@@ -63,9 +63,5 @@ message.channel.send("My Apologies. We don't serve that here");
 return;}
 message.channel.send("you ordered "+drinkOrdered);
 }
-
-
-
-
 });
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
