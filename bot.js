@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var prefix = ",,";
 var drinks = ["coffee","beer","whiskey","Manhattan","martini","mojito","bloody mary","mai tai","tequila","vodka","old fashioned","rum"]
 var snacks = ["chips","bread sticks","crackers","peanuts","popcorn"]
-var queue = {};
+var queue = [];
 var help = helpFun();
 var menu = menuFun();
 
