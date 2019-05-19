@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = ",,";
 var drinks = ["coffee","beer","whiskey","Manhattan","martini","mojito","bloody mary","mai tai","tequila","vodka","old fashioned","rum"]
-var snacks = ["chips","bread sticks","crackers","peanuts","popcorn"]
+var snacks = ["chips","breadsticks","crackers","peanuts","popcorn"]
 var queue = [];
 var help = helpFun();
 var menu = menuFun();
 
 var loop = setTimeout(() => {
 //if (Math.random() == 0) return;
-if (queue.length == 0 || queue == undefined) {console.log("nope");return;}
+if (queue.length == 0 || queue == undefined) {console.log("nope"); continue;}
 var itemf = queue[0];
 client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
 },5000);
