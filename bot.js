@@ -59,7 +59,7 @@ message.channel.send(menu);
 }
 if (command == "order"){
 var drinkOrdered = args.join(' ');
-if (drinks.some(function(x){x ==drinkOrdered})){
+if (drinks.some((x) => {return x == drinkOrdered})){
 message.channel.send("you ordered "+drinkOrdered);
 }
 message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
