@@ -61,5 +61,5 @@ var drinkOrdered = args.join(' ');
 if (!drinks.some((x) => {x ==drinkOrdered})) return;
 message.channel.send("you ordered "+drinkOrdered);
 }
-}
+});
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc"):
