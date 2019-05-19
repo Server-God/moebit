@@ -1,7 +1,8 @@
+//hey what does this do
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "b ";
-var drinks = ["coffee","beer","whiskey","Manhattan","martini","mojito","bloody mary","mai tai","tequila","vodka","old fashioned"," rum"]
+var drinks = ["coffee","beer","whiskey","Manhattan","martini","mojito","bloody mary","mai tai","tequila","vodka","old fashioned","rum"]
 var help = helpFun();
 var menu = menuFun();
 /*
@@ -58,12 +59,11 @@ message.channel.send(menu);
 }
 if (command == "order"){
 var drinkOrdered = args.join(' ');
-if (!(drinks.some((x) => {x ==drinkOrdered}))){
+if (!(drinks.some(function(x){x == drinkOrdered}))){
 message.channel.send("My Apologies. We don't serve *"+drinkOrdered+"* here.");
 return;}
 message.channel.send("you ordered "+drinkOrdered);
 }
 });
-
-//Test
-client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");7
+//Editing still !
+client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
