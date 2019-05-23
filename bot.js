@@ -14,7 +14,8 @@ client.on('ready', () => {
 var loop = setInterval(() => {
   if (queue.length > 0) {
     var itemf = queue.pop();
-    console.log(itemf); client.channels.get(itemf.channel).send(embedMake(itemf));
+    console.log(itemf);
+client.channels.get(itemf.channel).send(embedMake(itemf));
   }
 }, 10000)
 
@@ -37,9 +38,10 @@ client.on('message', (message) => {
         message.channel.send("My apologies. We don't serve **" + vorder + "** here.");
         return;
       }
-    message.channel.send("you ordered " + vorder);
+    //message.channel.send("you ordered " + vorder);
+message.channel.send(message);
     queue.push({
-      'name': message.member.name,
+      'name': message.author.name,
       'channel': message.channel.id,
       'order': vorder
     });
@@ -87,7 +89,7 @@ return emb
 }
 
 function randColor(){
-var colour = '';
+var colour = '#';
 for (var j = 0; j < 6; j++){
 colour = colour + hex();
 }
