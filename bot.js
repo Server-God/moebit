@@ -81,7 +81,7 @@ function menuFun() {
 
 function embedMake(d){
 var emb = new Discord.RichEmbed
-.setColor('#004500')
+.color('#004500')
 .setTitle('Order Up!')
 .addField('Order for '+d.name,'Enjoy your '+d.order + '!')
 return emb
