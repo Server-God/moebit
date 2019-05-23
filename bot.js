@@ -15,7 +15,7 @@ var loop = setInterval(() => {
   if (queue.length > 0) {
     var itemf = queue.pop();
     console.log(itemf);
-var msg = "Order for "+itemf.name+"\nEnjoy your "+itemf.order;
+var msg = ember(itemf);
 client.channels.get(itemf.channel).send(msg).catch((x)=>console.log(x));
   }
 }, 10000)
@@ -39,8 +39,7 @@ client.on('message', (message) => {
         message.channel.send("My apologies. We don't serve **" + vorder + "** here.");
         return;
       }
-message.channel.send({embed:{title:'hey'}});
-   // message.channel.send("you ordered " + vorder);
+    message.channel.send("you ordered " + vorder);
     queue.push({
       'name': 'user',
       'channel': message.channel.id,
@@ -79,6 +78,23 @@ function menuFun() {
   }
   output = output + "```";
   return output
+}
+
+function ember(d){
+var emb = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "Order Up! 🍔",
+    "description": "\"Woah that was fast!\"\n\"I know.\"",
+    "fields":[
+      {
+        "name": "Order for user",
+        "value": "Enjoy your drink!"
+      }
+    ]
+ }
+}
+return emb;
 }
 
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
