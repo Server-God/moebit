@@ -13,10 +13,22 @@ client.on('ready', () => {
 
 var loop = setInterval(() => {
   if (queue.length > 0) {
-    var itemf = queue.pop();
-    console.log(itemf);
-var msg = ember(itemf);
-client.channels.get(itemf.channel).send(msg).catch((x)=>console.log(x));
+    var d = queue.pop();
+    console.log(d);
+var msg = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "Order Up! 🍔",
+    //"description": "\"Woah that was fast!\"\n\"I know.\"",
+    "fields":[
+      {
+        "name": "Order for " + d.name,
+        "value": "Enjoy your "+d.order+"!" 
+      }
+    ]
+ }
+}
+client.channels.get(d.channel).send(msg).catch((x)=>console.log(x));
   }
 }, 10000)
 
@@ -78,23 +90,6 @@ function menuFun() {
   }
   output = output + "```";
   return output
-}
-
-function ember(d){
-var emb = {
-  "embed": {
-    "color": randomNum(0,16777215),
-    "title": "Order Up! 🍔",
-    "description": "\"Woah that was fast!\"\n\"I know.\"",
-    "fields":[
-      {
-        "name": "Order for user",
-        "value": "Enjoy your drink!"
-      }
-    ]
- }
-}
-return emb;
 }
 
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
