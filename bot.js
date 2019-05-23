@@ -7,48 +7,33 @@ var queue = [];
 var help = helpFun();
 var menu = menuFun();
 
-var loop = setTimeout(() => {
-//if (Math.random() == 0) return;
-console.log(queue.length);
-if (queue.length > 0){
-var itemf = queue[0];
+var loop = setInterval(function(){
+if (queue.length !== 0){
+var itemf = queue.shift;
 client.channel.get(itemf.channel).send("<@"+itemf.id+"> your order is ready! Enjoy your "+itemf.order+"!");
-}else console.log("no");
-},10000);
-/*
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "databases.000webhost.com",
-  user: "id9643255_purplehex",
-  password: "axniryu"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to database!");
-});*/
+}
+},5000);
 
 function helpFun(){
 var cmdListArr =[
-"help: shows this command" 
+"help: shows this command",
+"menu: lists things that can be ordered",
+"order: orders something"
 ]
-
 var output="";
 for(var I=0; I<cmdListArr.length;I++){
 output = output + prefix + cmdListArr[I] + "\n";
 }
-
 return output
 }
 
 function menuFun(){
 var output = "Drink Menu```"
-for (var I = -1; I<drinks.length;I++){
+for (var I = 0; I<drinks.length;I++){
 output = output + drinks[I]+"\n";
 }
 output = output + "```Snacks```";
-for (var h = -1; h<snacks.length;h++){
+for (var h = 0; h<snacks.length;h++){
 output = output + snacks[h]+"\n";
 }
 output = output + "```";
@@ -64,6 +49,7 @@ client.on('message', (message) => {
   if(message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
 
 if (command == "help"){
 message.channel.send(help);
