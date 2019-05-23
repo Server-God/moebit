@@ -14,8 +14,7 @@ client.on('ready', () => {
 var loop = setInterval(() => {
   if (queue.length > 0) {
     var itemf = queue.pop();
-    console.log(itemf)
-    client.channels.get(itemf.channel).send("<@" + itemf.id + "> your order is ready! Enjoy your " + itemf.order + "!");
+    console.log(itemf); client.channels.get(itemf.channel).send(embedMake(itemf));
   }
 }, 10000)
 
@@ -40,7 +39,7 @@ client.on('message', (message) => {
       }
     message.channel.send("you ordered " + vorder);
     queue.push({
-      'id': message.author.id,
+      'name': message.author.name,
       'channel': message.channel.id,
       'order': vorder
     });
@@ -77,6 +76,31 @@ function menuFun() {
   }
   output = output + "```";
   return output
+}
+
+function embedMake(d){
+var emb = new Discord.RichEmbed
+.setColor(randColor())
+.setTitle('Order Up!')
+.addField('Order for '+d.name,'Enjoy your '+d.order + '!')
+return emb
+}
+
+function randColor(){
+var colour = '';
+for (var j = 0; j < 6; j++){
+colour = colour + hex();
+}
+return colour
+}
+
+function hex(){
+var arrr = ["a","b","c","d","e","f"];
+var rando = randomNum(0,15);
+if (rando > 9){
+return arrr[rando-10]
+}
+else return rando
 }
 
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
