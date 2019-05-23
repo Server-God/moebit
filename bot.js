@@ -15,7 +15,8 @@ var loop = setInterval(() => {
   if (queue.length > 0) {
     var itemf = queue.pop();
     console.log(itemf);
-client.channels.get(itemf.channel).send(embedMake(itemf));
+	var msg = embedMake(itemf);
+client.channels.get(itemf.channel).send(msg);
   }
 }, 10000)
 
