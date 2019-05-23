@@ -15,22 +15,7 @@ var loop = setInterval(() => {
   if (queue.length > 0) {
     var itemf = queue.pop();
     console.log(itemf);
-	var msg = new Discord.RichEmbed()
-	.setColor('#0099ff')
-	.setTitle('Some title')
-	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addField('Regular field title', 'Some value here')
-	.addBlankField()
-	.addField('Inline field title', 'Some value here', true)
-	.addField('Inline field title', 'Some value here', true)
-	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
-	.setTimestamp()
-	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-
+var msg = "Order for "+itemf.name+"\nEnjoy your "+itemf.order;
 client.channels.get(itemf.channel).send(msg).catch((x)=>console.log(x));
   }
 }, 10000)
@@ -93,31 +78,6 @@ function menuFun() {
   }
   output = output + "```";
   return output
-}
-
-function embedMake(d){
-var emb = new Discord.RichEmbed()
-.setColor(randColor())
-.setTitle('Order Up!')
-.addField('Order for '+d.name,'Enjoy your '+d.order + '!')
-return emb
-}
-
-function randColor(){
-var colour = '#';
-for (var j = 0; j < 6; j++){
-colour = colour + hex();
-}
-return colour
-}
-
-function hex(){
-var arrr = ["a","b","c","d","e","f"];
-var rando = randomNum(0,15);
-if (rando > 9){
-return arrr[rando-10]
-}
-else return rando
 }
 
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
