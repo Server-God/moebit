@@ -39,7 +39,8 @@ client.on('message', (message) => {
         message.channel.send("My apologies. We don't serve **" + vorder + "** here.");
         return;
       }
-    message.channel.send("you ordered " + vorder);
+message.channel.send({embed:{title:'hey'}});
+   // message.channel.send("you ordered " + vorder);
     queue.push({
       'name': 'user',
       'channel': message.channel.id,
