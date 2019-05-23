@@ -45,16 +45,15 @@ client.on('message', (message) => {
     message.channel.send(menu);
   }
   if (command == "order") {
-    var vorder = args.join(' ');
+    var vorder = args.join(' ').toLowerCase();
     if (!(drinks.some((x) => {return x == vorder})))
     if (!(snacks.some((x) => {return x == vorder}))){
         message.channel.send("My apologies. We don't serve **" + vorder + "** here.");
         return;
       }
-console.log(message);
     message.channel.send("you ordered " + vorder);
     queue.push({
-      'name': 'user',
+      'name': message.user.username,
       'channel': message.channel.id,
       'order': vorder
     });
