@@ -39,7 +39,7 @@ client.on('message', (message) => {
         return;
       }
     //message.channel.send("you ordered " + vorder);
-message.channel.send(message);
+message.channel.send(message.toString());
     queue.push({
       'name': message.author.name,
       'channel': message.channel.id,
