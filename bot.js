@@ -81,10 +81,27 @@ function menuFun() {
 
 function embedMake(d){
 var emb = new Discord.RichEmbed()
-.setColor('#004500')
+.setColor(randColor())
 .setTitle('Order Up!')
 .addField('Order for '+d.name,'Enjoy your '+d.order + '!')
 return emb
+}
+
+function randColor(){
+var colour = '#';
+for (var j = 0; j < 6; j++){
+colour = colour + hex();
+}
+return colour
+}
+
+function hex(){
+var arrr = ["a","b","c","d","e","f"];
+var rando = randomNum(0,15);
+if (rando > 9){
+return arrr[rando-10]
+}
+else return rando
 }
 
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
