@@ -35,7 +35,7 @@ client.on('message', (message) => {
       }
     message.channel.send("you ordered " + vorder);
     queue.push({
-					'type': 'order',
+					'type': 0,
       'name': message.author.username,
       'channel': message.channel.id,
       'order': vorder
@@ -44,7 +44,7 @@ client.on('message', (message) => {
 if (command == "mix"){
 var dName=args.shift();
 var deliver = {
-'type': 'mix',
+'type': 1,
 'name': message.author.username,
 'channel': message.channel.id,
 'drinkName': dName,
@@ -91,13 +91,12 @@ function menuFun() {
 }
 function chooseReplyQ(d){
 var fieldS;
-console.log(d.type);
-if (d.type = 'order') {
+if (d.type = 0) {
 feildS = [{
         "name": "Order for " + d.name,
         "value": "Enjoy your "+d.order+"!" 
       }]
-} else if (d.type = 'mix') {
+} else {
 fieldS = [{
 "name": "Order for "+d.name,
 "value": "I made this \""+d.drinkName+"\" for you..."
