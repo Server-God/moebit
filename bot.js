@@ -116,7 +116,8 @@ else if (d.type = "mix") output = {
 "value": d.ingredients
 }]
  }
-else output = "I don't remember coding that");
+}
+else output = "I don't remember coding that";
 return output
 }
 
