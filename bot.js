@@ -91,7 +91,7 @@ function menuFun() {
 }
 function chooseReplyQ(d){
 var output;
-if (d.type = "order") output = {
+if (d.type = 'order') output = {
   "embed": {
     "color": randomNum(0,16777215),
     "title": "Order Up! 💁🍔",
@@ -101,7 +101,7 @@ if (d.type = "order") output = {
       }]
  }
 }
-else if (d.type = "mix") output = {
+else if (d.type = 'mix') output = {
   "embed": {
     "color": randomNum(0,16777215),
     "title": "🍹 Mixologist Status 🍵🍾",
