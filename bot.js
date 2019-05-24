@@ -95,8 +95,7 @@ if (d.type = "order") output = {
   "embed": {
     "color": randomNum(0,16777215),
     "title": "Order Up! 💁🍔",
-    //"description": "\"Woah that was fast!\"\n\"I know.\"",
-    "field": [{
+    "fields": [{
         "name": "Order for " + d.name,
         "value": "Enjoy your "+d.order+"!" 
       }]
@@ -106,8 +105,7 @@ else if (d.type = "mix") output = {
   "embed": {
     "color": randomNum(0,16777215),
     "title": "🍹 Mixologist Status 🍵🍾",
-    //"description": "\"Woah that was fast!\"\n\"I know.\"",
-    "field": [{
+    "fields": [{
 "name": "Order for "+d.name,
 "value": "I made this \""+d.drinkName+"\" for you..."
 },
