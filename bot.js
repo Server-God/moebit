@@ -24,7 +24,7 @@ else lilField = [
 {
 "name": "Order for "+d.name,
 "value": "I made this \""+d.drinkName+"\" for you..."
-}
+},
 {
 "name": "Ingredients",
 "value": d.ingredients
