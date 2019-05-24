@@ -90,13 +90,16 @@ function menuFun() {
   return output
 }
 function chooseReplyQ(d){
-var fieldS;
-if (d.type = 0) {
+var comp = d.type;
+var fieldS, titlE;
+if (comp = 0) {
+titlE = "Order Up! 💁🍔";
 feildS = [{
         "name": "Order for " + d.name,
         "value": "Enjoy your "+d.order+"!" 
       }]
 } else {
+titlE = "🍹 Mixologist Status 🍵🍾";
 fieldS = [{
 "name": "Order for "+d.name,
 "value": "I made this \""+d.drinkName+"\" for you..."
@@ -109,7 +112,7 @@ fieldS = [{
 var output = {
   "embed": {
     "color": randomNum(0,16777215),
-    "title": "Order Up! 💁🍔",
+    "title": titlE,
     "fields": fieldS
  }
 }
