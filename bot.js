@@ -50,10 +50,10 @@ var deliver = {
 'drinkName': dName,
 'ingredients': ''
 }
-var lilIng;
+var lilIng = "";
 for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n";
 deliver.ingredients = lilIng;
-message.channel.send("A "+dName+", hmm?" 
+message.channel.send("A "+dName+", hmm?") 
 queue.push(deliver);
 }
 });
@@ -119,6 +119,7 @@ else if (d.type = "mix") output = {
 else output = "I don't remember coding that";
 return output
 }
+
 client.on('ready', () => {
   console.log('I am ready!');
 });
