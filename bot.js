@@ -81,7 +81,7 @@ var deliver = {
 var lilIng;
 for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n"
 deliver.ingredients = lilIng;
-message.channel.send("A "+dName+", hmm?" 
+message.channel.send("A "+dName+", hmm?");
 queue.push(deliver);
 }
 });
