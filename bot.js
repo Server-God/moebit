@@ -7,20 +7,6 @@ var queue = [];
 var help = helpFun();
 var menu = menuFun();
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "sql12.freemysqlhosting.net",
-  user: "sql12293072",
-  password: "kKTjq8R9Hh"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-
 client.on('ready', () => {
   console.log('I am ready!');
 });
