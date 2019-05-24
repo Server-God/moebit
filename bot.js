@@ -124,7 +124,7 @@ return output
 }
 
 client.on('ready', () => {
-client.user.setPresencs(prefix+"help for help");
+client.user.setActivity(prefix+"help for help");
   console.log('I am ready!');
 });
 client.login("NTgxMzMzMjM1OTM4NjIzNTA4.XOdvkQ.Msa-vYNPEJCFQ-R1DOMqaQRBPA0");
