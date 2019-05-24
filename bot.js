@@ -124,7 +124,13 @@ return output
 }
 
 client.on('ready', () => {
-client.user.setActivity(prefix+"help for help");
+client.user.setPresence({
+        game: { 
+            name: 'my code',
+            type: 'WATCHING'
+        },
+        status: 'idle'
+    })
   console.log('I am ready!');
 });
 client.login("NTgxMzMzMjM1OTM4NjIzNTA4.XOdvkQ.Msa-vYNPEJCFQ-R1DOMqaQRBPA0");
