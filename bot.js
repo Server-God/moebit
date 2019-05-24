@@ -52,7 +52,11 @@ var deliver = {
 'ingredients': ''
 }
 var lilIng = "";
-for (var h = 0; h < nArgs.length; h++) lilIng = lilIng + nArgs[h] + "\n";
+for (var h = 0; h < nArgs.length; h++){
+var nA = nArgs[h];
+var tempLil = nA.trimLeft();
+lilIng = lilIng + tempLil + "\n";
+}
 deliver.ingredients = lilIng;
 message.channel.send("A "+dName+", hmm?") 
 queue.push(deliver);
