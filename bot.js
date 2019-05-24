@@ -43,6 +43,7 @@ client.on('message', (message) => {
   }
 if (command == "mix"){
 var dName=args.shift();
+var nArgs = args.join(' ').split(',');
 var deliver = {
 'type': 1,
 'name': message.author.username,
@@ -51,7 +52,7 @@ var deliver = {
 'ingredients': ''
 }
 var lilIng = "";
-for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n";
+for (var h = 0; h < nArgs.length; h++) lilIng = lilIng + nArgs[h] + "\n";
 deliver.ingredients = lilIng;
 message.channel.send("A "+dName+", hmm?") 
 queue.push(deliver);
@@ -94,29 +95,25 @@ var comp = d.type;
 if (comp == 0){ var output = {
   "embed": {
     "color": randomNum(0,16777215),
-    "title": "Order Up",
-    "fields": [
-{
-"name": d.name,
-"value": d.order
-}
-]
+    "title": "Order Up! 💁🍔",
+    "fields": [{
+"name": "Order for "+d.name,
+"value": "Enjoy your "+d.order
+}]
 }
 }
 } else ouput = output = {
   "embed": {
     "color": randomNum(0,16777215),
-    "title": "Order Up",
-    "fields": [
-{
-"name": d.name,
-"value": d.drinkName
+    "title": "🍹 Mixologist Status 🍵🍾",
+    "fields": [{
+"name": "Cocktail for "+d.name,
+"value": "\""+d.drinkName+"\""
 },
 {
 "name": "ingredients",
-"value": d.ingredients
-}
-]
+"value": d.ingredients+"\n\nDrink Responsibly."
+}]
 }
 }
 return output
