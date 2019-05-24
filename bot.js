@@ -53,7 +53,7 @@ client.on('message', (message) => {
       }
     message.channel.send("you ordered " + vorder);
     queue.push({
-      'name': message.user.username,
+      'name': message.author.username,
       'channel': message.channel.id,
       'order': vorder
     });
