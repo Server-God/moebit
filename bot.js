@@ -4,41 +4,13 @@ var prefix = "!";
 var drinks = ["coffee", "beer", "whiskey", "manhattan", "martini", "mojito", "bloody mary", "mai tai", "tequila", "vodka", "old fashioned", "rum"]
 var snacks = ["chips", "breadsticks", "crackers", "peanuts", "popcorn"]
 var queue = [];
-var help = helpFun()
-var menu = menuFun();
-
-client.on('ready', () => {
-  console.log('I am ready!');
-});
 
 var loop = setInterval(() => {
   if (queue.length > 0) {
     var d = queue.shift();
     console.log(d);
-var lilField;
-if (d.type = "order") lilField = [{
-        "name": "Order for " + d.name,
-        "value": "Enjoy your "+d.order+"!" 
-      }]
-else lilField = [
-{
-"name": "Order for "+d.name,
-"value": "I made this \""+d.drinkName+"\" for you..."
-},
-{
-"name": "Ingredients",
-"value": d.ingredients
-}
-]
-var msg = {
-  "embed": {
-    "color": randomNum(0,16777215),
-    "title": "Order Up! 🍔",
-    //"description": "\"Woah that was fast!\"\n\"I know.\"",
-    "field": lilField
- }
-}
-client.channels.get(d.channel).send(msg).catch((x)=>console.log(x));
+var msg = chooseReplyQ(d);
+client.channels.get(d.channel).send(msg).catch(console.error);
   }
 }, 10000)
 
@@ -79,9 +51,9 @@ var deliver = {
 'ingredients': ''
 }
 var lilIng;
-for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n"
+for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n";
 deliver.ingredients = lilIng;
-message.channel.send("A "+dName+", hmm?");
+message.channel.send("A "+dName+", hmm?" 
 queue.push(deliver);
 }
 });
@@ -90,7 +62,8 @@ function randomNum(min,max){
   var num = Math.floor (Math.random() * (max - min) + min)
   return num
 }
-
+var help = helpFun()
+var menu = menuFun();
 function helpFun() {
   var cmdListArr = [
     "help: shows this command",
@@ -104,7 +77,6 @@ function helpFun() {
   }
   return output
 }
-
 function menuFun() {
   var output = "Drink Menu```"
   for (var I = -1; I < drinks.length; I++) {
@@ -117,5 +89,37 @@ function menuFun() {
   output = output + "```";
   return output
 }
-
+function chooseReplyQ(d){
+var output;
+if (d.type = "order") output = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "Order Up! 💁🍔",
+    //"description": "\"Woah that was fast!\"\n\"I know.\"",
+    "field": [{
+        "name": "Order for " + d.name,
+        "value": "Enjoy your "+d.order+"!" 
+      }]
+ }
+}
+else if (d.type = "mix") output = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "🍹 Mixologist Status 🍵🍾",
+    //"description": "\"Woah that was fast!\"\n\"I know.\"",
+    "field": [{
+"name": "Order for "+d.name,
+"value": "I made this \""+d.drinkName+"\" for you..."
+},
+{
+"name": "Ingredients",
+"value": d.ingredients
+}]
+ }
+else output = "I don't remember coding that";
+return output
+}
+client.on('ready', () => {
+  console.log('I am ready!');
+});
 client.login("NTc5NzcxMjYyMjE4NTM0OTMy.XOHAQA.NUVWXDxbuSakWp70-4PvsKdBNAc");
