@@ -91,31 +91,33 @@ function menuFun() {
 }
 function chooseReplyQ(d){
 var comp = d.type;
-var fieldS, titlE;
-if (comp = 0) {
-titlE = "Order Up! 💁🍔";
-console.log("this was run");
-feildS = [{
-        "name": "Order for " + d.name,
-        "value": "Enjoy your "+d.order+"!" 
-}]
-} else {
-titlE = "🍹 Mixologist Status 🍵🍾";
-fieldS = [{
-"name": "Order for "+d.name,
-"value": "I made this \""+d.drinkName+"\" for you..."
-},
-{
-"name": "Ingredients",
-"value": d.ingredients
-}]
-}
-var output = {
+if (comp == 0){ var output = {
   "embed": {
     "color": randomNum(0,16777215),
-    "title": titlE,
-    "fields": fieldS
- }
+    "title": "Order Up",
+    "fields": [
+{
+"name": d.name
+"value": d.order
+}
+]
+}
+}
+} else ouput = output = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "Order Up",
+    "fields": [
+{
+"name": d.name,
+"value": d.drinkName
+},
+{
+"name": "ingredients",
+"value": d.ingredients
+}
+]
+}
 }
 return output
 }
