@@ -74,7 +74,7 @@ function helpFun() {
     "help: shows this command",
     "menu: lists snacks or drinks that can be ordered",
     "order: order a snack or drink",
-    "mix: don't bother; not ready yet (in development)"
+    "mix: [name] {ingredients, separated, by, commas}"
   ]
   var output = "";
   for (var I = 0; I < cmdListArr.length; I++) {
@@ -101,7 +101,7 @@ if (comp == 0){ var output = {
     "color": randomNum(0,16777215),
     "title": "Order Up! 💁🍔",
     "fields": [{
-"name": "Order for "+d.name,
+"name": "Order for *"+d.name+"*",
 "value": "Enjoy your "+d.order
 }]
 }
@@ -111,7 +111,7 @@ if (comp == 0){ var output = {
     "color": randomNum(0,16777215),
     "title": "🍹 Mixologist Status 🍵🍾",
     "fields": [{
-"name": "Cocktail for "+d.name,
+"name": "Cocktail for *"+d.name+"*",
 "value": "\""+d.drinkName+"\""
 },
 {
