@@ -90,22 +90,13 @@ function menuFun() {
   return output
 }
 function chooseReplyQ(d){
-var output;
-if (d.type = 'order') output = {
-  "embed": {
-    "color": randomNum(0,16777215),
-    "title": "Order Up! 💁🍔",
-    "fields": [{
+if (d.type = 'order') {
+feildS = [{
         "name": "Order for " + d.name,
         "value": "Enjoy your "+d.order+"!" 
       }]
- }
-}
-else if (d.type = 'mix') output = {
-  "embed": {
-    "color": randomNum(0,16777215),
-    "title": "🍹 Mixologist Status 🍵🍾",
-    "fields": [{
+} else if (d.type = 'mix') {
+fieldS = [{
 "name": "Order for "+d.name,
 "value": "I made this \""+d.drinkName+"\" for you..."
 },
@@ -113,9 +104,14 @@ else if (d.type = 'mix') output = {
 "name": "Ingredients",
 "value": d.ingredients
 }]
+}
+var output = {
+  "embed": {
+    "color": randomNum(0,16777215),
+    "title": "Order Up! 💁🍔",
+    "fields": fieldS
  }
 }
-else output = "I don't remember coding that";
 return output
 }
 
