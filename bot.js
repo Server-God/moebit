@@ -94,10 +94,11 @@ var comp = d.type;
 var fieldS, titlE;
 if (comp = 0) {
 titlE = "Order Up! 💁🍔";
+console.log("this was run");
 feildS = [{
         "name": "Order for " + d.name,
         "value": "Enjoy your "+d.order+"!" 
-      }]
+}]
 } else {
 titlE = "🍹 Mixologist Status 🍵🍾";
 fieldS = [{
