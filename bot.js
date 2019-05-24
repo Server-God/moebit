@@ -90,6 +90,7 @@ function menuFun() {
   return output
 }
 function chooseReplyQ(d){
+var fieldS;
 if (d.type = 'order') {
 feildS = [{
         "name": "Order for " + d.name,
