@@ -4,7 +4,7 @@ var prefix = "!";
 var drinks = ["coffee", "beer", "whiskey", "manhattan", "martini", "mojito", "bloody mary", "mai tai", "tequila", "vodka", "old fashioned", "rum"]
 var snacks = ["chips", "breadsticks", "crackers", "peanuts", "popcorn"]
 var queue = [];
-var help = helpFun();
+var help = helpFun()
 var menu = menuFun();
 
 client.on('ready', () => {
@@ -13,19 +13,29 @@ client.on('ready', () => {
 
 var loop = setInterval(() => {
   if (queue.length > 0) {
-    var d = queue.pop();
+    var d = queue.shift();
     console.log(d);
+var lilField;
+if (d.type = "order") lilField = [{
+        "name": "Order for " + d.name,
+        "value": "Enjoy your "+d.order+"!" 
+      }]
+else lilField = [
+{
+"name": "Order for "+d.name,
+"value": "I made this \""+d.drinkName+"\" for you..."
+}
+{
+"name": "Ingredients",
+"value": d.ingredients
+}
+]
 var msg = {
   "embed": {
     "color": randomNum(0,16777215),
     "title": "Order Up! 🍔",
     //"description": "\"Woah that was fast!\"\n\"I know.\"",
-    "fields":[
-      {
-        "name": "Order for " + d.name,
-        "value": "Enjoy your "+d.order+"!" 
-      }
-    ]
+    "field": lilField
  }
 }
 client.channels.get(d.channel).send(msg).catch((x)=>console.log(x));
@@ -53,11 +63,27 @@ client.on('message', (message) => {
       }
     message.channel.send("you ordered " + vorder);
     queue.push({
+					'type': 'order',
       'name': message.author.username,
       'channel': message.channel.id,
       'order': vorder
     });
   }
+if (command == "mix"){
+var dName=args.shift();
+var deliver = {
+'type': 'mix',
+'name': message.author.username,
+'channel': message.channel.id,
+'drinkName': dName,
+'ingredients': ''
+}
+var lilIng;
+for (var h = 0; h < args.length; h++) lilIng = lilIng + args[h] + "\n"
+deliver.ingredients = lilIng;
+message.channel.send("A "+dName+", hmm?" 
+queue.push(deliver);
+}
 });
 
 function randomNum(min,max){
