@@ -97,7 +97,7 @@ if (comp == 0){ var output = {
     "title": "Order Up",
     "fields": [
 {
-"name": d.name
+"name": d.name,
 "value": d.order
 }
 ]
