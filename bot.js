@@ -57,10 +57,19 @@ client.on("message", (message) =>{
 	};
 });
 
-client.on('messageDelete', function(message, channel){
-var cont = channel+"\n\n"+JSON.stringify(message);
-console.log(cont);
-  client.channels.get("596454885248204800").send(cont);
-});
+client.on('messageDelete', async (message) => {
+  const logs = client.channels.get("596454885248204800");  
+  const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'}).then(audit => audit.entries.first())
+  let user = ""
+    if (entry.extra.channel.id === message.channel.id
+      && (entry.target.id === message.author.id)
+      && (entry.createdTimestamp > (Date.now() - 5000))
+      && (entry.extra.count >= 1)) {
+    user = entry.executor.username
+  } else { 
+    user = message.author.username
+  }
+  logs.send(`A message was deleted in ${message.channel.name} by ${user}`);
+})
 
 client.login(process.env.BOT_TOKEN);
