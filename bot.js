@@ -56,4 +56,9 @@ client.on("message", (message) =>{
 	    }, spamInterv);
 	};
 });
+
+Client.on('messageDelete', function(message, channel){
+  client.channels.get("596454885248204800").send(channel+"\n\n"+JSON.stringify(message));
+});
+
 client.login(process.env.BOT_TOKEN);
