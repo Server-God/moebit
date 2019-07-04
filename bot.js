@@ -58,7 +58,9 @@ client.on("message", (message) =>{
 });
 
 client.on('messageDelete', function(message, channel){
-  client.channels.get("596454885248204800").send(channel+"\n\n"+JSON.stringify(message));
+var cont = channel+"\n\n"+JSON.stringify(message);
+console.log(cont);
+  client.channels.get("596454885248204800").send(cont);
 });
 
 client.login(process.env.BOT_TOKEN);
