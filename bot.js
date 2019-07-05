@@ -43,6 +43,7 @@ if (message.author.id !== process.env.myID) return;
 	const newGame = args.join(" ");
 	if (!newGame) return message.reply("yo, idiot you forgot what to set your game to");
     	message.delete().catch(O_o=>{}); 
+        clearInterval(games);
 	client.user.setActivity(newGame);
 	}
 });
