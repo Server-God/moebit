@@ -39,6 +39,12 @@ if (message.author.id !== process.env.myID) return;
 	client.user.setActivity(newGame);
 	games = setInterval(gameBoi,600000);
 	}
+	if (command == "set"){
+	const newGame = args.join(" ");
+	if (!newGame) return message.reply("yo, idiot you forgot what to set your game to");
+    	message.delete().catch(O_o=>{}); 
+	client.user.setActivity(newGame);
+	}
 });
 
 client.on("message", (message) =>{
