@@ -4,6 +4,37 @@ const config = require('./config.json');
 function random(low, high){
   return Math.floor(Math.random() * (high - low) + low)
 }
+function cipher(status,string) {
+	//shift all letters by 13
+	//assign letters numbers according to alphabet ex (a is 1 j is 10)
+	//flip numbers (1 becomes 10, 21 becomes 12, 11 is 11)
+	//order numbers least to greatest
+	//match letters to numbers in the unorganized fashion
+	
+	//e is encrypt
+	//d is decrypt
+	var a = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+	var c = ["w","g","n","x","h","o","y","i","p","z","j","q","a","k","r","b","c","s","l","m","t","d","u","e","v","k"]
+
+	var n = -1;
+	var output = "";
+	var temp = string.toLowerCase().split("");
+	for(var i = 0; i < string.length; i++){
+		if(a.includes(temp[i]) == false) output = output + temp[i];
+		else {
+			if (status == "e"){
+			n = a.indexOf(temp[i]);
+			output = output + c[n];
+			} else if(status == "d"){
+			n = c.indexOf(temp[i]);
+			output = output + a[n];
+			}
+		}
+	}
+	return output.toUpperCase()
+}
+
+console.log(cipher("e","mouse bois uniTe"))
 function gameBoi(){
   var n = random(0,config.games.length-1);
   client.user.setActivity(config.games[n]);
@@ -46,6 +77,14 @@ if (message.author.id !== process.env.myID) return;
         clearInterval(games);
 	client.user.setActivity(newGame);
 	}
+if (command = "decrypt") {
+var text = args.join(" ");
+message.channel.send(cipher("d", text);
+}
+if (command = "encrypt") {
+var text = args.join(" ");
+message.channel.send(cipher("e", text);
+}
 });
 
 client.on("message", (message) =>{
