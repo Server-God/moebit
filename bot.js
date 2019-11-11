@@ -54,7 +54,7 @@ function cipher(status,string) {
 	//e is encrypt
 	//d is decrypt
 	var a = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-	var c = ["w","g","n","x","h","o","y","i","p","z","j","q","a","k","r","b","c","s","l","m","t","d","u","e","v","k"]
+	var c = ["w","g","n","x","h","o","y","i","p","z","j","q","a","k","r","b","l","s","c","m","t","d","u","e","v","k"]
 
 	var n = -1;
 	var output = "";
