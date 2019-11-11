@@ -19,7 +19,7 @@ client.on("message", (message) =>{
 	var color = random(1,16777215);
 	var emb = {
   "author": {
-    "name": "Leslie the Useful Bot",
+    "name": "Leslie the Helpful Doggo",
     "url": "https://discordapp.com",
     "icon_url": "https://cdn.discordapp.com/attachments/535599595271749632/643328648304394241/image0.jpg"
   }
