@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const fetch = require('node-fetch');
+const https = require('https');
 
 var myID = process.env.myID;
 var prefix = process.env.prefix;
@@ -15,67 +15,98 @@ client.on("message", (message) =>{
   if(message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();
-	
-	if (command == "decrypt" || command == "encrypt") {
-		var simp=capCase(command);
-		var st=simp.f, title=simp.c;
-		var color = random(1,16777215);
-		var text = args.join(' '), result = cipher(st, text);
-		console.log(st+"\n"+text+"\n"+result);
-		
-		const embed = {
-  "title": title,
-  "description": "Your og text: \"**"+text+"\"**",
-  "color": color,
+	var color = random(1,16777215);
+	var emb = {
   "author": {
     "name": "Leslie the Useful Bot",
     "url": "https://discordapp.com",
     "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
-  },
-  "fields": [
-    {
-      "name": "🤔",
-      "value": "***"+result+"***"
-    }
-  ]
+  }
+	}
+	
+	//cool as h*ck encryption thingje
+	if (command == "decrypt" || command == "encrypt") {
+		message.delete().catch(O_o=>{}); 
+		var simp=capCase(command);
+		var st=simp.f, title=simp.c;
+		var text = args.join(' '), result = cipher(st, text);
+		const embed = {
+  "title": title,
+  "description": "Your og text: \"**"+text+"\"**",
+  "color": color,
+  "author": emb.author,
+  "fields": [{"name": "🤔","value": "***"+result+"***"}]
+};
+
+message.channel.send({ embed });
+		} else
+	
+	//yomama joke
+		if (command === 'yomama') {
+			message.delete().catch(O_o=>{}); 
+var thecon="";
+let url = "https://api.yomomma.info"
+
+https.get(url,(res) => {
+    let body = "";
+
+    res.on("data", (chunk) => {
+        body += chunk;
+    });
+
+    res.on("end", () => {
+        try {
+            let json = JSON.parse(body);
+            // do something with JSON
+		const embed = {
+  "title": 'Yo Mama Jokes',
+  "description": "Generate Yo Mama jokes to your heart's content",
+  "color": color,
+  "author": emb.author,
+  "fields": [{"name": "😂","value": json.joke}]
 };
 message.channel.send({ embed });
-		} else 
-		
-		//cat api thingie
-		/*if (command === 'cat') {
-		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+        } catch (error) {
+            console.error(error.message);
+        };
+    });
 
-		message.channel.send(file);
-	} else */
+}).on("error", (error) => {
+    console.error(error.message);
+});
+
+	} else 
 	
-	//urban dictionary thing
-	if (command === 'urban') {
-		if (!args.length) {
-			return message.channel.send('You need to supply a search term!');
-		}
+	//cats?
+	if(command == "cat"){
+		message.delete().catch(O_o=>{}); 
+		let url = "https://aws.random.cat/meow";
+		https.get(url,(res) => {
+    let body = "";
+    res.on("data", (chunk) => {
+        body += chunk;
+    });
+    res.on("end", () => {
+        try {
+            let json = JSON.parse(body);
+            // do something with J
+const embed = {
+  "title": 'Meow',
+  "description": "🐱",
+  "color": color,
+  "author": emb.author,
+  "image": {"url":json.file}
+};
+message.channel.send({ embed });
+        } catch (error) {
+            console.error(error.message);
+        };
+    });
 
-		const query = querystring.stringify({ term: args.join(' ') });
-
-		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
-
-		if (!list.length) {
-			return message.channel.send(`No results found for **${args.join(' ')}**.`);
-		}
-
-		const [answer] = list;
-
-		const embed = new Discord.RichEmbed()
-			.setColor('#EFFF00')
-			.setTitle(answer.word)
-			.setURL(answer.permalink)
-			.addField('Definition', trim(answer.definition, 1024))
-			.addField('Example', trim(answer.example, 1024))
-			.addField('Rating', `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.`);
-
-		message.channel.send(embed);
-	}
-		
+}).on("error", (error) => {
+    console.error(error.message);
+})
+			}
 });
 
 
