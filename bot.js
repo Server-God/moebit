@@ -2,9 +2,11 @@ const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-var myID = process.env.myID;
-var prefix = process.env.prefix;
-var token = process.env.BOT_TOKEN;
+var myID = 256880604359032832;
+var prefix = ',';
+var token = "NjQzMjQyNjgxMzU0NTUxMzI4.XciqfA.7sQvGVh9kEdQ8fLTidqdZYziti4";
+//just add "process.env" + var name
+//when switching to heroku
 
 
 client.on('ready', () => {
@@ -138,6 +140,14 @@ message.channel.send({ embed });
     console.error(error.message);
 })
 			}
+			
+			if (!(message.author.id == myID)) return;
+			if (command == "say") {
+				message.delete().catch(O_o=>{}); 
+				var txt= args.join(' ');
+				message.channel.send(txt);
+			}
+			
 });
 
 
