@@ -20,7 +20,6 @@ client.on("message", (message) =>{
 		var st=simp.f, title=simp.c;
 		var color = random(1,16777215);
 		var text = args.join(' '), result = cipher(st, text);
-		console.log(st+"\n"+text+"\n"+result);
 		
 		const embed = {
   "title": title,
