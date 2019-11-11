@@ -41,10 +41,10 @@ function gameBoi(){
 }
 var spam;
 client.on('ready', () => {
-  gameBoi()
+  //gameBoi()
   console.log('I am ready!');
 });
-var games = setInterval(gameBoi,600000);
+//var games = setInterval(gameBoi,600000);
 
 client.on("message", (message) =>{
   if(message.content.includes('`.grab`')){
@@ -62,7 +62,7 @@ if (message.author.id !== process.env.myID) return;
 	message.delete();
 	clearInterval(spam);	
 	}
-	if (command == "whoosh"){
+	/*if (command == "whoosh"){
 	const newGame = args.join(" ");
 	if (!newGame) return message.reply("yo, idiot you forgot what to set your game to");
     	message.delete().catch(O_o=>{}); 
@@ -76,7 +76,7 @@ if (message.author.id !== process.env.myID) return;
     	message.delete().catch(O_o=>{}); 
         clearInterval(games);
 	client.user.setActivity(newGame);
-	}
+	}*/
 if (command = "decrypt") {
 var text = args.join(" ");
 message.channel.send(cipher("d", text);
