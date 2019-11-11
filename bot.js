@@ -21,7 +21,7 @@ client.on("message", (message) =>{
   "author": {
     "name": "Leslie the Useful Bot",
     "url": "https://discordapp.com",
-    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+    "icon_url": "https://cdn.discordapp.com/attachments/535599595271749632/643328648304394241/image0.jpg"
   }
 	}
 	
