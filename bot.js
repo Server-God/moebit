@@ -1,10 +1,11 @@
+const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const https = require('https');
 
 var myID = process.env.myID;
 var prefix = process.env.prefix;
 var token = process.env.BOT_TOKEN;
+
 
 client.on('ready', () => {
   console.log('I am ready!');
