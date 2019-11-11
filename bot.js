@@ -20,8 +20,7 @@ client.on("message", (message) =>{
 	var emb = {
   "author": {
     "name": "Leslie the Helpful Doggo",
-    "url": "https://discordapp.com",
-    "icon_url": "https://cdn.discordapp.com/attachments/535599595271749632/643328648304394241/image0.jpg"
+    "url": "https://cdn.discordapp.com/attachments/535599595271749632/643328648304394241/image0.jpg"
   }
 	}
 	
@@ -97,6 +96,37 @@ const embed = {
   "color": color,
   "author": emb.author,
   "image": {"url":json.file}
+};
+message.channel.send({ embed });
+        } catch (error) {
+            console.error(error.message);
+        };
+    });
+
+}).on("error", (error) => {
+    console.error(error.message);
+})
+			}else
+			
+			//random doggo
+			if(command == "dog"){
+		message.delete().catch(O_o=>{}); 
+		let url = "https://dog.ceo/api/breeds/image/random";
+		https.get(url,(res) => {
+    let body = "";
+    res.on("data", (chunk) => {
+        body += chunk;
+    });
+    res.on("end", () => {
+        try {
+            let json = JSON.parse(body);
+            // do something with J
+const embed = {
+  "title": 'Bork',
+  "description": "🐶",
+  "color": color,
+  "author": emb.author,
+  "image": {"url":json.message}
 };
 message.channel.send({ embed });
         } catch (error) {
