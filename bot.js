@@ -79,11 +79,11 @@ if (message.author.id !== process.env.myID) return;
 	}*/
 if (command = "decrypt") {
 var text = args.join(" ");
-message.channel.send(cipher("d", text);
+message.channel.send(cipher("d", text));
 }
 if (command = "encrypt") {
 var text = args.join(" ");
-message.channel.send(cipher("e", text);
+message.channel.send(cipher("e", text));
 }
 });
 
