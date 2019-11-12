@@ -24,6 +24,34 @@ client.on("message", (message) =>{
   }
 	}
 	
+	if (command == "gift"){
+				console.log(args);
+				var rec= args.shift(), recipient= " "+rec;
+				var sender= "<@!"+message.author.id+"> ";
+				var gift= args.join(' ');
+				var article = artFind(gift);
+				
+				const embed = { 
+					"description": "A gift?", 
+					"color": 3884472, 
+					"timestamp": new Date(), 
+					"footer": { 
+						"icon_url": "https://cdn.discordapp.com/attachments/535599595271749632/643610290864259112/giftbox.png", 
+						"text": message.author.username
+						}, 
+						"thumbnail": { 
+						"url": "https://cdn.discordapp.com/attachments/535599595271749632/643610290864259112/giftbox.png" 
+						}, 
+						"fields": [ { 
+							"name": "🎁💝", 
+							"value": sender+"gave"+recipient+article+gift } ] 
+						}; 
+				if (!(rec.startsWith('<@') && rec.endsWith('>')))
+				message.channel.send("uh oh forgot to mention someone!");
+				else message.channel.send({ embed })
+				
+			} else
+	
 	//cool as h*ck encryption thingje
 	if (command == "decrypt" || command == "encrypt") {
 		message.delete().catch(O_o=>{}); 
@@ -177,6 +205,12 @@ function cipher(status,string) {
 		}
 	}
 	return output.toUpperCase()
+}
+
+function artFind(txt){
+	var t=txt.charAt(0), v= ["a","e","i","o","u"];
+	if(v.some(function(e){return e==t})) return " an " 
+	else return " a "
 }
 
 function random(low, high){
