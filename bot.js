@@ -46,7 +46,7 @@ client.on("message", (message) =>{
 							"name": "🎁💝", 
 							"value": sender+"gave"+recipient+article+gift } ] 
 						}; 
-				if (!(mention(rec)))
+				if (!(mention(rec)||rec==undefined))
 				message.channel.send("uh oh forgot to mention someone!");
 				else message.channel.send({ embed })
 				
