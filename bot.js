@@ -223,7 +223,7 @@ function capCase(txt){
 	}
 
 function mention(input){
-var temp= input.split('');
+var temp= input.split(/ +/g);
 var b= temp[0]+temp[1];
 var e= temp[temp.length-1]
 return b=="<@" && e==">"
