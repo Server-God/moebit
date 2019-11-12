@@ -46,7 +46,7 @@ client.on("message", (message) =>{
 							"name": "🎁💝", 
 							"value": sender+"gave"+recipient+article+gift } ] 
 						}; 
-				if (!(rec.startsWith('<@') && rec.endsWith('>')))
+				if (!(mention(rec)))
 				message.channel.send("uh oh forgot to mention someone!");
 				else message.channel.send({ embed })
 				
@@ -221,5 +221,12 @@ function capCase(txt){
 	var temp = txt, h= temp.charAt(0), c= temp.slice(1);
 	return {'f': h, 'n': c, 'c': h.toUpperCase()+c}
 	}
+
+function mention(input){
+var temp= input.split('');
+var b= temp[0]+temp[1];
+var e= temp[temp.length-1]
+return b=="<@" && e==">"
+}
 
 client.login(token);
