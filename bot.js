@@ -223,7 +223,7 @@ function capCase(txt){
 	}
 
 function mention(input){
-if (!(input.length>0||input.length==undefined))return false
+if (!(input.length==undefined))return false
 var temp= input.split(/ +/g);
 var b= temp[0]+temp[1];
 var e= temp[temp.length-1]
